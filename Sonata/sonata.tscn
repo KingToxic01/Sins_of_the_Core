@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://1e3yojaujlag"]
+
+[ext_resource type="Script" path="res://Sonata/sonata.gd" id="1_0u221"]
+[ext_resource type="Texture2D" uid="uid://bk8njfk376d88" path="res://Sonata/Sonata.png" id="1_pdquh"]
+[ext_resource type="Texture2D" uid="uid://byc88ih7kje6d" path="res://Sonata/Sonata_side.png" id="2_kk5ah"]
+[ext_resource type="Texture2D" uid="uid://d4b2e10t4gqkb" path="res://Sonata/Sonata_back.png" id="3_6l3sb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_henrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pdquh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kk5ah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6l3sb")
+}],
+"loop": true,
+"name": &"Sonata Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8djte"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg2ig"]
+size = Vector2(18, 9)
+
+[node name="Sonata" type="CharacterBody2D"]
+script = ExtResource("1_0u221")
+metadata/_edit_vertical_guides_ = [-576.0]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_henrp")
+animation = &"Sonata Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_8djte")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_gg2ig")

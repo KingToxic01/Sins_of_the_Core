@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://xlfyu6mjc1te"]
+
+[ext_resource type="PackedScene" uid="uid://1e3yojaujlag" path="res://Sonata/sonata.tscn" id="1_dlg5m"]
+
+[node name="World" type="Node2D"]
+
+[node name="Sonata" parent="." instance=ExtResource("1_dlg5m")]
+position = Vector2(154, 144)
