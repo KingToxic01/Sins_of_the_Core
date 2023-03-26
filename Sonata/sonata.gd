@@ -1,31 +1,63 @@
 extends CharacterBody2D
-const MAX_SPEED = 80
-const ACCELERATION = 500
-const FRICTION = 500
+var speed = 80
+
 
 @onready var animation = $AnimationPlayer
 
-# Inputs for characters
-var left = Input.get_action_strength("left") 
-var right = Input.get_action_strength("right")
-var down = Input.get_action_strength("down")
-var up = Input.get_action_strength("up")
+
+
+func _input(event):
+	var input_direction = Vector2( 
+		Input.get_action_strength("right") - Input.get_action_strength("left"),
+		Input.get_action_strength("down") - Input.get_action_strength("up"))
+	velocity = input_direction * speed
+	
+	if Input.get_action_strength("right"):
+		animation.play("walkside") 
+		$SpriteAnimation.flip_h = false
+	
+	elif event.is_action_released("right"):
+		animation.play("Idleside")
+	
+	if Input.get_action_strength("left"):
+		$SpriteAnimation.flip_h = true
+		animation.play("walkside")
+	
+	elif event.is_action_released("left"):
+		$SpriteAnimation.flip_h = false
+		animation.play("Idleside")
+		
+	if Input.get_action_strength("down"):
+		animation.play("walkfront")
+	elif event.is_action_released("down") :
+		animation.play("Idlefront")
+	
+	if Input.get_action_strength("up"):
+		animation.play("walkback")
+	elif  event.is_action_released("up"):
+		animation.play("idleback")
+		
 
 func _physics_process(delta):
-	velocity = Vector2.ZERO
-	var inpput_direction = Vector2.ZERO
-	inpput_direction.x = right - left
-	inpput_direction.y = down - up
-	inpput_direction =inpput_direction.normalized()
+	_input(input_event)
+	move_and_slide()
 	
-	if right:
-		animation.flip_h = false
-		animation.play("walkside")
-		velocity =  velocity.move_toward(inpput_direction * MAX_SPEED, ACCELERATION * delta)
-	else:
-		animation.play("Idleside")
-		velocity =  velocity.move_toward(Vector2.ZERO,FRICTION * delta)
+		
 	
 	
-	
-	
+
+#	if Input.is_key_pressed(KEY_W):
+#		#animation.flip_h = false
+#		animation.play("walkback")
+#		velocity = Vector2(0,-1) * MAX_SPEED
+#		move_and_slide()
+#	else :
+#		animation.play("idleback")
+#
+#	if  Input.is_key_pressed(KEY_S):
+#		animation.play("walkfront")
+#		velocity = Vector2(0,1) * MAX_SPEED
+#		move_and_slide()
+#	else:
+#		animation.play("Idlefront")
+		
