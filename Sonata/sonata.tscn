@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://1e3yojaujlag"]
+[gd_scene load_steps=29 format=3 uid="uid://1e3yojaujlag"]
 
 [ext_resource type="Script" path="res://Sonata/sonata.gd" id="1_0u221"]
 [ext_resource type="Texture2D" uid="uid://bk8njfk376d88" path="res://Sonata/Sonata.png" id="1_pdquh"]
@@ -10,8 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://u5tlhiyhrjfx" path="res://Sonata/Sonata_front_walk_mid.png" id="8_455io"]
 [ext_resource type="Texture2D" uid="uid://vfj8jfwvd5hj" path="res://Sonata/Sonata_front_walk_left.png" id="9_tp6v2"]
 [ext_resource type="Texture2D" uid="uid://d2s6b231nld0w" path="res://Sonata/Sonata_front_walk_right.png" id="10_a5hu2"]
+[ext_resource type="Texture2D" uid="uid://b3b0h8vpkw86t" path="res://Sonata_side.png" id="11_mtmir"]
 [ext_resource type="Texture2D" uid="uid://vy2mdp30sj7p" path="res://Sonata/Sonata_side_walk.png" id="11_v1wi4"]
 [ext_resource type="Texture2D" uid="uid://ong2nmxrpsqx" path="res://Sonata/Sonata_side_walk2.png" id="12_bxq7f"]
+[ext_resource type="Texture2D" uid="uid://bncagpb356gnc" path="res://Sonata_side_walk2.png" id="12_wcrbp"]
+[ext_resource type="Texture2D" uid="uid://bi20khdqh5u08" path="res://Sonata_side_walk.png" id="13_8hd2n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x5opk"]
 animations = [{
@@ -22,6 +25,23 @@ animations = [{
 "loop": true,
 "name": &"Idlefront",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_mtmir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mtmir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mtmir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mtmir")
+}],
+"loop": true,
+"name": &"Idleleft",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -71,6 +91,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"walkfront",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_mtmir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wcrbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mtmir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8hd2n")
+}],
+"loop": true,
+"name": &"walkleft",
 "speed": 4.0
 }, {
 "frames": [{
@@ -295,14 +332,71 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_5mmdo"]
+resource_name = "walkleft"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walkleft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_kvlp5"]
+resource_name = "idleleft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idleleft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_887vg"]
 _data = {
 "Idlefront": SubResource("Animation_ks54v"),
 "Idleside": SubResource("Animation_5y5ur"),
 "RESET": SubResource("Animation_hojl4"),
 "idleback": SubResource("Animation_rn15b"),
+"idleleft": SubResource("Animation_kvlp5"),
 "walkback": SubResource("Animation_m5wd0"),
 "walkfront": SubResource("Animation_i0ekg"),
+"walkleft": SubResource("Animation_5mmdo"),
 "walkside": SubResource("Animation_ymgk6")
 }
 

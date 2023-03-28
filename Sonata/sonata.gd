@@ -15,34 +15,31 @@ func _input(event):
 	if Input.get_action_strength("right"):
 		animation.play("walkside") 
 		$SpriteAnimation.flip_h = false
-	
-	elif event.is_action_released("right"):
-		animation.play("Idleside")
+#	else:
+#		animation.play("Idleside")
 	
 	if Input.get_action_strength("left"):
-		$SpriteAnimation.flip_h = true
-		animation.play("walkside")
+		animation.play("walkleft")
 	
-	elif event.is_action_released("left"):
-		$SpriteAnimation.flip_h = false
-		animation.play("Idleside")
+#	else:
+#		animation.play("idleleft")
 		
 	if Input.get_action_strength("down"):
 		animation.play("walkfront")
-	elif event.is_action_released("down") :
-		animation.play("Idlefront")
+#	else:
+#		animation.play("Idlefront")
 	
 	if Input.get_action_strength("up"):
 		animation.play("walkback")
-	elif  event.is_action_released("up"):
-		animation.play("idleback")
+#	else:
+#		animation.play("idleback")
 		
 
 func _physics_process(delta):
 	_input(input_event)
 	move_and_slide()
 	
-		
+	
 	
 	
 
