@@ -1,47 +1,50 @@
 extends CharacterBody2D
+
 var speed = 80
 
-
 @onready var animation = $AnimationPlayer
-
-
+#parameters/Idle/blend_position
+	
 
 func _input(event):
 	var input_direction = Vector2( 
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up"))
-	velocity = input_direction * speed
 	
+	velocity = input_direction * speed
+	if  Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		$Area2D/CollisionShape2D.disabled = false
+		animation.play("frontAttack")
+	else :
+		$Area2D/CollisionShape2D.disabled = true
 	if Input.get_action_strength("right"):
 		animation.play("walkside") 
-		$SpriteAnimation.flip_h = false
-#	else:
-#		animation.play("Idleside")
+	
+	elif  Input.is_action_just_released("right"):
+		animation.play("Idleside")
 	
 	if Input.get_action_strength("left"):
 		animation.play("walkleft")
 	
-#	else:
-#		animation.play("idleleft")
-		
+	elif Input.is_action_just_released("left"):
+		animation.play("idleleft")
+	
 	if Input.get_action_strength("down"):
 		animation.play("walkfront")
-#	else:
-#		animation.play("Idlefront")
+	elif Input.is_action_just_released("down"):
+		animation.play("Idlefront")
 	
 	if Input.get_action_strength("up"):
 		animation.play("walkback")
-#	else:
-#		animation.play("idleback")
-		
+	elif Input.is_action_just_released("up"):
+		animation.play("idleback")
+
 
 func _physics_process(delta):
 	_input(input_event)
 	move_and_slide()
-	
-	
-	
-	
+
+
 
 #	if Input.is_key_pressed(KEY_W):
 #		#animation.flip_h = false
@@ -57,4 +60,4 @@ func _physics_process(delta):
 #		move_and_slide()
 #	else:
 #		animation.play("Idlefront")
-		
+

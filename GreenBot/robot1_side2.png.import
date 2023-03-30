@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bncagpb356gnc"
-path="res://.godot/imported/Sonata_side_walk2.png-e5ba46dbe06e4295a28ca8740cf5560a.ctex"
+uid="uid://cy6liyt6r1g14"
+path="res://.godot/imported/robot1_side2.png-5a86fc2119602e7c5c84c19594cfa222.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sonata_side_walk2.png"
-dest_files=["res://.godot/imported/Sonata_side_walk2.png-e5ba46dbe06e4295a28ca8740cf5560a.ctex"]
+source_file="res://GreenBot/robot1_side2.png"
+dest_files=["res://.godot/imported/robot1_side2.png-5a86fc2119602e7c5c84c19594cfa222.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3b0h8vpkw86t"
-path="res://.godot/imported/Sonata_side.png-ffc89ce297462ac17a6178e709522d8d.ctex"
+uid="uid://biogishbl4e22"
+path="res://.godot/imported/sonata_leftIdle.png-73c6101c5e60c8609ec3177cd5f6b2ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sonata_side.png"
-dest_files=["res://.godot/imported/Sonata_side.png-ffc89ce297462ac17a6178e709522d8d.ctex"]
+source_file="res://Sonata/sonata_leftIdle.png"
+dest_files=["res://.godot/imported/sonata_leftIdle.png-73c6101c5e60c8609ec3177cd5f6b2ce.ctex"]
 
 [params]
 
