@@ -12,11 +12,16 @@ func _input(event):
 		Input.get_action_strength("down") - Input.get_action_strength("up"))
 	
 	velocity = input_direction * speed
+	velocity.normalized()
+#	if input_direction.x > Vector2.ZERO and input_direction.y > Vector2.ZERO:
+#		animation.play("Idlefront")
 	if  Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		$Area2D/CollisionShape2D.disabled = false
 		animation.play("frontAttack")
 	else :
 		$Area2D/CollisionShape2D.disabled = true
+	
+		
 	if Input.get_action_strength("right"):
 		animation.play("walkside") 
 	
@@ -44,7 +49,10 @@ func _physics_process(delta):
 	_input(input_event)
 	move_and_slide()
 
-
+#func _on_area_2d_area_entered(area):
+#	if area.is_in_group("Hit"):
+#		area.TakesDamage()
+	
 
 #	if Input.is_key_pressed(KEY_W):
 #		#animation.flip_h = false
@@ -60,4 +68,7 @@ func _physics_process(delta):
 #		move_and_slide()
 #	else:
 #		animation.play("Idlefront")
+
+
+
 
