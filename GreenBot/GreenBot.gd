@@ -1,4 +1,5 @@
 extends CharacterBody2D
+signal decrease_health()
 
 #
 #@export var speed = 100

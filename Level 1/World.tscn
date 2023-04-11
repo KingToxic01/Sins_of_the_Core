@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://tlewwd0x72se"]
+[gd_scene load_steps=12 format=3 uid="uid://tlewwd0x72se"]
 
 [ext_resource type="PackedScene" uid="uid://d3j54e6fidhmx" path="res://Sonata/sonata.tscn" id="1_dlg5m"]
 [ext_resource type="Texture2D" uid="uid://b6jcpmdw3gxr2" path="res://World/DirtTileset.png" id="1_saps6"]
 [ext_resource type="PackedScene" path="res://GreenBot/green_bot.tscn" id="2_oipyf"]
 [ext_resource type="Texture2D" uid="uid://lvhc38pkfjva" path="res://World/GrassBackground.png" id="2_skdki"]
 [ext_resource type="PackedScene" uid="uid://chr4f84ny3d8c" path="res://tree.tscn" id="5_yt16y"]
-[ext_resource type="PackedScene" uid="uid://dvu36dnrmle04" path="res://UI/health_ui.tscn" id="6_qcm7v"]
+[ext_resource type="Script" path="res://Level 1/HealthBar.gd" id="6_8eixr"]
+[ext_resource type="Texture2D" uid="uid://cl3xc701xtcol" path="res://Effects/black.png" id="6_74b00"]
+[ext_resource type="Texture2D" uid="uid://cw5o0smg2e1pt" path="res://Effects/green.png" id="7_o0x7x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n47w2"]
 resource_name = "Dirt"
@@ -287,14 +289,36 @@ position = Vector2(-91, 25)
 [node name="Sonata" parent="." instance=ExtResource("1_dlg5m")]
 position = Vector2(154, 143.955)
 
-[node name="HealthUI" parent="Sonata" instance=ExtResource("6_qcm7v")]
-offset_left = -145.0
-offset_top = -107.955
-offset_right = -68.0
-offset_bottom = -81.955
+[node name="HealthBar" type="Control" parent="Sonata"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_8eixr")
+
+[node name="Background" type="TextureRect" parent="Sonata/HealthBar"]
+layout_mode = 0
+offset_left = -183.5
+offset_top = -105.955
+offset_right = -78.5
+offset_bottom = -84.955
+texture = ExtResource("6_74b00")
+expand_mode = 3
+
+[node name="Bar" type="TextureRect" parent="Sonata/HealthBar"]
+layout_mode = 0
+offset_left = -181.0
+offset_top = -103.955
+offset_right = -81.0
+offset_bottom = -86.955
+texture = ExtResource("7_o0x7x")
+expand_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="Sonata"]
 position = Vector2(0, -3.955)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 100.0
+
+[connection signal="decrease_health" from="GreenBot" to="GreenBot" method="_on_decrease_health"]
+[connection signal="decrease_health" from="GreenBot" to="Sonata/HealthBar" method="_on_green_bot_decrease_health"]
