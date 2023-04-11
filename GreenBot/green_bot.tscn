@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=14 format=3 uid="uid://cd123emum4cwy"]
 
 [ext_resource type="Script" path="res://GreenBot/GreenBot.gd" id="1_3tcgj"]
 [ext_resource type="Texture2D" uid="uid://86lnxau1ngxh" path="res://GreenBot/robot1_back1.png" id="2_lrebl"]
