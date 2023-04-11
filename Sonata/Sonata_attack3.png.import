@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4i75f1jo2lqr"
-path="res://.godot/imported/Sonata_back.png-d171d1019f057e44b6c8a5559b0adcc8.ctex"
+uid="uid://bb81yhta3bti4"
+path="res://.godot/imported/Sonata_attack3.png-7f2c75319853aca936e841a0dc4e497d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level 1/Sonata_back.png"
-dest_files=["res://.godot/imported/Sonata_back.png-d171d1019f057e44b6c8a5559b0adcc8.ctex"]
+source_file="res://Sonata/Sonata_attack3.png"
+dest_files=["res://.godot/imported/Sonata_attack3.png-7f2c75319853aca936e841a0dc4e497d.ctex"]
 
 [params]
 

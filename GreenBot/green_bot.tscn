@@ -1,31 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://entvvdgawq80"]
+[gd_scene load_steps=14 format=3]
 
-[ext_resource type="Script" path="res://GreenBot/GreenBot.gd" id="1_a3c4q"]
-[ext_resource type="Texture2D" uid="uid://86lnxau1ngxh" path="res://GreenBot/robot1_back1.png" id="2_ufktj"]
-[ext_resource type="Texture2D" uid="uid://8i8r02mre65q" path="res://GreenBot/robot1_back2.png" id="3_1hx7d"]
-[ext_resource type="Texture2D" uid="uid://bjoou1rlb8rt2" path="res://GreenBot/robot1_back3.png" id="4_m51jm"]
-[ext_resource type="Texture2D" uid="uid://bvlj1irxanw5t" path="res://GreenBot/robot1_front1.png" id="5_g7nah"]
-[ext_resource type="Texture2D" uid="uid://c3ucxyuh1ula5" path="res://GreenBot/robot1_front2.png" id="6_6r07o"]
-[ext_resource type="Texture2D" uid="uid://iq7kmvyca7xx" path="res://GreenBot/robot1_front3.png" id="7_1nwth"]
-[ext_resource type="Texture2D" uid="uid://boltfscbjux6i" path="res://GreenBot/robot1_side1.png" id="8_jyvo8"]
-[ext_resource type="Texture2D" uid="uid://cy6liyt6r1g14" path="res://GreenBot/robot1_side2.png" id="9_scj5y"]
-[ext_resource type="Texture2D" uid="uid://bith4coo2gd4x" path="res://GreenBot/robot1_side3.png" id="10_0vmjj"]
-[ext_resource type="Texture2D" uid="uid://cifo4dta3wtcj" path="res://Shadows/LargeShadow.png" id="11_toto3"]
+[ext_resource type="Script" path="res://GreenBot/GreenBot.gd" id="1_3tcgj"]
+[ext_resource type="Texture2D" uid="uid://86lnxau1ngxh" path="res://GreenBot/robot1_back1.png" id="2_lrebl"]
+[ext_resource type="Texture2D" uid="uid://8i8r02mre65q" path="res://GreenBot/robot1_back2.png" id="3_tw20j"]
+[ext_resource type="Texture2D" uid="uid://bjoou1rlb8rt2" path="res://GreenBot/robot1_back3.png" id="4_im6rj"]
+[ext_resource type="Texture2D" uid="uid://bvlj1irxanw5t" path="res://GreenBot/robot1_front1.png" id="5_4ma34"]
+[ext_resource type="Texture2D" uid="uid://c3ucxyuh1ula5" path="res://GreenBot/robot1_front2.png" id="6_ayals"]
+[ext_resource type="Texture2D" uid="uid://iq7kmvyca7xx" path="res://GreenBot/robot1_front3.png" id="7_ldjh8"]
+[ext_resource type="Texture2D" uid="uid://boltfscbjux6i" path="res://GreenBot/robot1_side1.png" id="8_drv2p"]
+[ext_resource type="Texture2D" uid="uid://cy6liyt6r1g14" path="res://GreenBot/robot1_side2.png" id="9_hgc83"]
+[ext_resource type="Texture2D" uid="uid://bith4coo2gd4x" path="res://GreenBot/robot1_side3.png" id="10_xfxga"]
+[ext_resource type="Texture2D" uid="uid://cifo4dta3wtcj" path="res://Shadows/LargeShadow.png" id="11_e2a8r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yqiy2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ufktj")
+"texture": ExtResource("2_lrebl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_1hx7d")
+"texture": ExtResource("3_tw20j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ufktj")
+"texture": ExtResource("2_lrebl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_m51jm")
+"texture": ExtResource("4_im6rj")
 }],
 "loop": true,
 "name": &"Back",
@@ -33,16 +33,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_g7nah")
+"texture": ExtResource("5_4ma34")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_6r07o")
+"texture": ExtResource("6_ayals")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_g7nah")
+"texture": ExtResource("5_4ma34")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_1nwth")
+"texture": ExtResource("7_ldjh8")
 }],
 "loop": true,
 "name": &"Front",
@@ -50,16 +50,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_jyvo8")
+"texture": ExtResource("8_drv2p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_scj5y")
+"texture": ExtResource("9_hgc83")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_jyvo8")
+"texture": ExtResource("8_drv2p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_0vmjj")
+"texture": ExtResource("10_xfxga")
 }],
 "loop": true,
 "name": &"Left",
@@ -70,7 +70,7 @@ animations = [{
 size = Vector2(16, 26)
 
 [node name="GreenBot" type="CharacterBody2D"]
-script = ExtResource("1_a3c4q")
+script = ExtResource("1_3tcgj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 0.25)
@@ -83,4 +83,4 @@ shape = SubResource("RectangleShape2D_b78gx")
 
 [node name="LargeShadow" type="Sprite2D" parent="."]
 position = Vector2(1, 14)
-texture = ExtResource("11_toto3")
+texture = ExtResource("11_e2a8r")
