@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://entvvdgawq80"]
+[gd_scene load_steps=14 format=3 uid="uid://entvvdgawq80"]
 
 [ext_resource type="Script" path="res://GreenBot/GreenBot.gd" id="1_a3c4q"]
 [ext_resource type="Texture2D" uid="uid://86lnxau1ngxh" path="res://GreenBot/robot1_back1.png" id="2_ufktj"]
@@ -69,11 +69,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b78gx"]
 size = Vector2(16, 26)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_il50v"]
-radius = 101.0
-height = 202.0
-
-[node name="GreenBot" type="CharacterBody2D" groups=["Enemy"]]
+[node name="GreenBot" type="CharacterBody2D"]
 script = ExtResource("1_a3c4q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -88,14 +84,3 @@ shape = SubResource("RectangleShape2D_b78gx")
 [node name="LargeShadow" type="Sprite2D" parent="."]
 position = Vector2(1, 14)
 texture = ExtResource("11_toto3")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_il50v")
-
-[node name="AttackTimer" type="Timer" parent="."]
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
