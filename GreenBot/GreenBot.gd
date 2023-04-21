@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-
-
 var speed = 20
 var enemy_velocity = Vector2.ZERO
 @onready var attack_timer = $AttackTimer
@@ -49,10 +47,6 @@ func move(target, delta):
 	enemy_velocity = move_and_slide()
 
 
-
-	
-
-
 func _on_area_2d_body_entered(body):
 	print("entered")
 	player = body
@@ -73,3 +67,8 @@ func get_circle_position(random):
 
 func _on_attack_timer_timeout():
 	state = ATTACK
+
+
+func _on_area_2d_area_entered(area):
+	print("entered")
+	player = area

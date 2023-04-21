@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cd123emum4cwy"]
+[gd_scene load_steps=15 format=3 uid="uid://cd123emum4cwy"]
 
 [ext_resource type="Script" path="res://GreenBot/GreenBot.gd" id="1_3tcgj"]
 [ext_resource type="Texture2D" uid="uid://86lnxau1ngxh" path="res://GreenBot/robot1_back1.png" id="2_lrebl"]
@@ -69,6 +69,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b78gx"]
 size = Vector2(16, 26)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_efwri"]
+radius = 31.0161
+
 [node name="GreenBot" type="CharacterBody2D"]
 script = ExtResource("1_3tcgj")
 
@@ -84,3 +87,11 @@ shape = SubResource("RectangleShape2D_b78gx")
 [node name="LargeShadow" type="Sprite2D" parent="."]
 position = Vector2(1, 14)
 texture = ExtResource("11_e2a8r")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_efwri")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

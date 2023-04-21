@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://r7cajgjisr6u"
+path="res://.godot/imported/ReJian_-_Sins_Of_The_Core_Full_Song.wav-9c05d552304bc1d777725a56b7fe6eba.sample"
+
+[deps]
+
+source_file="res://Sonata Music/ReJian_-_Sins_Of_The_Core_Full_Song.wav"
+dest_files=["res://.godot/imported/ReJian_-_Sins_Of_The_Core_Full_Song.wav-9c05d552304bc1d777725a56b7fe6eba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

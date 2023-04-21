@@ -6,63 +6,49 @@ var speed = 80
 #parameters/Idle/blend_position
 	
 
-#func _input(event):
-	
-
-
-
 
 func _physics_process(delta):
-	
-	var input_direction = Vector2( 
+	var input_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up"))
-	
-	velocity = input_direction * speed
-	velocity.normalized()
-	print(input_direction)
-	
-	if input_direction.x > 0 and input_direction.y > 0 :
+
+	# Normalize input direction vector
+	input_direction = input_direction.normalized()
+
+	# Multiply by speed
+	var velocity = input_direction * speed
+
+	# Determine animation state based on input direction
+	if input_direction.x > 0 and input_direction.y > 0:
 		animation.play("walkfront")
-	
-	if input_direction.x < 0 and input_direction.y > 0:
+	elif input_direction.x < 0 and input_direction.y > 0:
 		animation.play("walkfront")
-		
-	if  input_direction.x == 0 and input_direction.y == 0  or input_direction.x == 0 and input_direction.y == 0:
-		animation.play("Idlefront")
-	
-	if input_direction.x < 0 and input_direction.y < 0:
+	elif input_direction.x > 0 and input_direction.y < 0:
 		animation.play("walkback")
-			
-	if input_direction.x > 0 and input_direction.y < 0:
+	elif input_direction.x < 0 and input_direction.y < 0:
 		animation.play("walkback")
-	
-	if  input_direction.x == 0 and input_direction.y == 0 or input_direction.x == 0 and input_direction.y == 0 :
-		animation.play("idleback")
-	
-	if input_direction.x > 0:
+	elif input_direction.x > 0:
 		animation.play("walkside")
-	
-	if  input_direction.x < 0:
+	elif input_direction.x < 0:
 		animation.play("walkleft")
-	
-	if input_direction.x > 0 and input_direction.x >= 0:
-		animation.play("Idleside")
-			
-	if input_direction.x < 0 and input_direction.x <= 0 :
-			animation.play("idleleft")
-	
-	if input_direction.y > 0:
+	elif input_direction.y > 0:
 		animation.play("walkfront")
-	
-	if  input_direction.y < 0:
+	elif input_direction.y < 0:
 		animation.play("walkback")
+	else:
+		# Determine idle animation based on input direction
+		if velocity.x > 0:
+			animation.play("idleside")
+		elif velocity.x < 0:
+			animation.play("idleleft")
+		elif velocity.y > 0:
+			animation.play("Idlefront")
+		else:
+			animation.play("idleback")
+	# Move the character
+	move_and_slide()
 	
-	if input_direction.y > 0 and input_direction.y >= 0:
-		animation.play("Idlefront")
-			
-	if input_direction.y < 0 and input_direction.y <= 0:
-		animation.play("idleback")
+
 	#if Input.get_action_strength("right"):
 	#	animation.play("walkside") 
 #
@@ -87,15 +73,15 @@ func _physics_process(delta):
 #	elif Input.is_action_just_released("up"):
 #		animation.play("idleback")
 #
-#	if  Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-#		$Area2D/CollisionShape2D.disabled = false
-#		animation.play("frontAttack")
-#	else :
-#		$Area2D/CollisionShape2D.disabled = true
+	if  Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		$Area2D/CollisionShape2D.disabled = false
+		animation.play("frontAttack")
+	else :
+		$Area2D/CollisionShape2D.disabled = true
 	
 	
 	
-	move_and_slide()
+
 	
 	
 	
