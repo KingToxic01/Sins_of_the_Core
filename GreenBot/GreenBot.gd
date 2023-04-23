@@ -1,6 +1,7 @@
 extends CharacterBody2D
 signal decrease_health()
 
+<<<<<<< Updated upstream
 #
 #@export var speed = 100
 #@export var detection_range = 200
@@ -45,3 +46,26 @@ signal decrease_health()
 #	self.add_child(time)
 #	time.start()
 #	await (time)
+=======
+var speed = 89
+var player_chase = false
+var sonata = null
+@onready var animation = $AnimatedSprite2D
+
+func _physics_process(delta):
+	if player_chase:
+		position +=  (sonata.position - position)/speed
+		animation.play("Front")
+	else :
+		animation.play("Idle")
+
+
+func _on_detect_area_body_entered(body):
+	sonata = body
+	player_chase = true
+
+
+func _on_detect_area_body_exited(body):
+	sonata = null
+	player_chase = false
+>>>>>>> Stashed changes

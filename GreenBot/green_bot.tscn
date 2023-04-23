@@ -1,7 +1,10 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=14 format=3]
+=======
+[gd_scene load_steps=14 format=3 uid="uid://cd123emum4cwy"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://GreenBot/GreenBot.gd" id="1_3tcgj"]
-[ext_resource type="Texture2D" uid="uid://86lnxau1ngxh" path="res://GreenBot/robot1_back1.png" id="2_lrebl"]
 [ext_resource type="Texture2D" uid="uid://8i8r02mre65q" path="res://GreenBot/robot1_back2.png" id="3_tw20j"]
 [ext_resource type="Texture2D" uid="uid://bjoou1rlb8rt2" path="res://GreenBot/robot1_back3.png" id="4_im6rj"]
 [ext_resource type="Texture2D" uid="uid://bvlj1irxanw5t" path="res://GreenBot/robot1_front1.png" id="5_4ma34"]
@@ -16,13 +19,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lrebl")
-}, {
-"duration": 1.0,
 "texture": ExtResource("3_tw20j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_lrebl")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_im6rj")
@@ -33,13 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_4ma34")
-}, {
-"duration": 1.0,
 "texture": ExtResource("6_ayals")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_4ma34")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_ldjh8")
@@ -47,6 +38,23 @@ animations = [{
 "loop": true,
 "name": &"Front",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4ma34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ma34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ma34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ma34")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -63,24 +71,43 @@ animations = [{
 }],
 "loop": true,
 "name": &"Left",
-"speed": 5.0
+"speed": 4.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efwri"]
+radius = 42.0119
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b78gx"]
 size = Vector2(16, 26)
 
 [node name="GreenBot" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_3tcgj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 0.25)
 scale = Vector2(1, 1.02)
 sprite_frames = SubResource("SpriteFrames_yqiy2")
-animation = &"Front"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_b78gx")
+animation = &"Idle"
+frame_progress = 0.644545
 
 [node name="LargeShadow" type="Sprite2D" parent="."]
 position = Vector2(1, 14)
 texture = ExtResource("11_e2a8r")
+<<<<<<< Updated upstream
+=======
+
+[node name="Detect_area" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect_area"]
+shape = SubResource("CircleShape2D_efwri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b78gx")
+
+[connection signal="body_entered" from="Detect_area" to="." method="_on_detect_area_body_entered"]
+[connection signal="body_exited" from="Detect_area" to="." method="_on_detect_area_body_exited"]
+>>>>>>> Stashed changes
