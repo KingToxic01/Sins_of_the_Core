@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsa46psl6qoy3"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_y1504"]
+[ext_resource type="Texture2D" path="res://Menu buttons and Logo/IMG_0799.jpg" id="2_1koay"]
+[ext_resource type="Texture2D" path="res://Menu buttons and Logo/Untitled_Artwork.png" id="3_pwbdw"]
+[ext_resource type="Texture2D" path="res://Menu buttons and Logo/Untitled_Artwork (1).png" id="4_i7uum"]
+[ext_resource type="AudioStream" path="res://Sonata Music/ReJian_-_Sins_Of_The_Core_Full_Song.wav" id="5_u8sa4"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y1504")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Img0799" type="Sprite2D" parent="."]
+position = Vector2(577.5, 329.25)
+scale = Vector2(1.08671, 1.08794)
+texture = ExtResource("2_1koay")
+
+[node name="UntitledArtwork" type="Sprite2D" parent="."]
+position = Vector2(534, 301)
+texture = ExtResource("3_pwbdw")
+
+[node name="UntitledArtwork(1)" type="Sprite2D" parent="."]
+position = Vector2(576, 373)
+scale = Vector2(1.08907, 1)
+texture = ExtResource("4_i7uum")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 141.0
+offset_top = 31.0
+offset_right = 357.0
+offset_bottom = 155.0
+grow_vertical = 2
+
+[node name="NewButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+text = "New Game
+"
+
+[node name="LoadButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Load game
+"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+focus_neighbor_bottom = NodePath("../NewButton")
+text = "
+Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_u8sa4")
+volume_db = -14.084
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
