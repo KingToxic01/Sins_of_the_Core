@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bb81yhta3bti4" path="res://Sonata/Sonata_attack3.png" id="6_m5fnk"]
 [ext_resource type="Texture2D" uid="uid://dp7sicyx2qld4" path="res://Sonata/Sonata_back_walk_righ.png" id="6_snn7l"]
 [ext_resource type="Texture2D" uid="uid://cwisv0kqio8u6" path="res://Sonata/Sonata_back_walk_left.png" id="7_4dtwj"]
-[ext_resource type="Texture2D" uid="uid://c7jio5v16xg18" path="res://Sonata/Sonata_attack4.png" id="7_afrfu"]
+[ext_resource type="Texture2D" uid="uid://ccvxvj0hm60o3" path="res://Sonata/Sonata_attack4.png" id="7_afrfu"]
 [ext_resource type="Texture2D" uid="uid://u5tlhiyhrjfx" path="res://Sonata/Sonata_front_walk_mid.png" id="8_455io"]
 [ext_resource type="Texture2D" uid="uid://vfj8jfwvd5hj" path="res://Sonata/Sonata_front_walk_left.png" id="9_tp6v2"]
 [ext_resource type="Texture2D" uid="uid://d2s6b231nld0w" path="res://Sonata/Sonata_front_walk_right.png" id="10_a5hu2"]
