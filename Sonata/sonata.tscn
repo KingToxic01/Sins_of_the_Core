@@ -507,6 +507,8 @@ _data = {
 size = Vector2(12, 23)
 
 [node name="Sonata" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_0u221")
 metadata/_edit_vertical_guides_ = [-576.0]
 

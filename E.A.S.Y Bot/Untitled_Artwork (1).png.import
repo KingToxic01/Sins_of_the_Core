@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c60nj8pvkput"
-path="res://.godot/imported/Untitled_Artwork (6).png-492e57c25c870bf1119dc58f6bc4bb5b.ctex"
+uid="uid://bdiif6nhyl3x2"
+path="res://.godot/imported/Untitled_Artwork (1).png-7bd34b0e789c3e7193b798dcccfe08af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu buttons and Logo/Untitled_Artwork (6).png"
-dest_files=["res://.godot/imported/Untitled_Artwork (6).png-492e57c25c870bf1119dc58f6bc4bb5b.ctex"]
+source_file="res://E.A.S.Y Bot/Untitled_Artwork (1).png"
+dest_files=["res://.godot/imported/Untitled_Artwork (1).png-7bd34b0e789c3e7193b798dcccfe08af.ctex"]
 
 [params]
 

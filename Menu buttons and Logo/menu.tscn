@@ -1,0 +1,290 @@
+[gd_scene load_steps=26 format=3 uid="uid://dj8aaosocqah8"]
+
+[ext_resource type="Script" path="res://Menu buttons and Logo/menu.gd" id="1_fx88a"]
+[ext_resource type="Texture2D" uid="uid://drl5ijeov3gvc" path="res://Menu buttons and Logo/IMG_0799.jpg" id="2_2qia1"]
+[ext_resource type="Texture2D" uid="uid://emi7042u822r" path="res://Menu buttons and Logo/Untitled_Artwork.png" id="3_m56yh"]
+[ext_resource type="Texture2D" uid="uid://dq01rb7cm0c00" path="res://Menu buttons and Logo/Untitled_Artwork (1).png" id="4_0rdet"]
+[ext_resource type="Texture2D" uid="uid://b18fafa21mpty" path="res://Menu buttons and Logo/Untitled_Artwork (2).png" id="5_wg66t"]
+[ext_resource type="AudioStream" uid="uid://r7cajgjisr6u" path="res://Sonata Music/ReJian_-_Sins_Of_The_Core_Full_Song.wav" id="6_qwmtw"]
+[ext_resource type="Texture2D" uid="uid://bcehudg88nlj" path="res://Menu buttons and Logo/Untitled_Artwork (9).png" id="7_fv1im"]
+[ext_resource type="Texture2D" uid="uid://dtjumw0nq7lsc" path="res://Menu buttons and Logo/Untitled_Artwork (10).png" id="8_m06bq"]
+[ext_resource type="Texture2D" uid="uid://dr1p2foqmbwl8" path="res://Menu buttons and Logo/Untitled_Artwork (3).png" id="9_m4fhx"]
+[ext_resource type="Texture2D" uid="uid://c60nj8pvkput" path="res://Menu buttons and Logo/Untitled_Artwork (6).png" id="10_4t41w"]
+[ext_resource type="Texture2D" uid="uid://duw06ymska08m" path="res://Menu buttons and Logo/Untitled_Artwork (8).png" id="11_rjv1v"]
+[ext_resource type="Texture2D" uid="uid://db03tgxlq74qt" path="res://Menu buttons and Logo/Untitled_Artwork (5).png" id="12_wq6cd"]
+[ext_resource type="Texture2D" uid="uid://c6mylvth0vl7u" path="res://Menu buttons and Logo/Untitled_Artwork (4).png" id="13_14kht"]
+[ext_resource type="Texture2D" uid="uid://bgc454t1mda3a" path="res://Menu buttons and Logo/Untitled_Artwork (7).png" id="14_tk6bv"]
+
+[sub_resource type="Animation" id="Animation_u3gpv"]
+resource_name = "LoadClicked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/LoadButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_tk6bv"), ExtResource("14_tk6bv"), ExtResource("14_tk6bv")]
+}
+
+[sub_resource type="Animation" id="Animation_wy8wl"]
+resource_name = "LoadMouseHover"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/LoadButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_14kht"), ExtResource("13_14kht"), ExtResource("13_14kht")]
+}
+
+[sub_resource type="Animation" id="Animation_0oete"]
+resource_name = "LoadNoAction"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/LoadButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_0rdet"), ExtResource("4_0rdet"), ExtResource("4_0rdet")]
+}
+
+[sub_resource type="Animation" id="Animation_j0ddh"]
+resource_name = "MouseOverNew"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/NewButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("9_m4fhx"), ExtResource("9_m4fhx")]
+}
+
+[sub_resource type="Animation" id="Animation_fbm4m"]
+resource_name = "NewButttonClicked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/NewButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_4t41w"), ExtResource("10_4t41w"), ExtResource("10_4t41w")]
+}
+
+[sub_resource type="Animation" id="Animation_py8to"]
+resource_name = "NewNoAction"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/NewButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_m56yh"), ExtResource("3_m56yh"), ExtResource("3_m56yh"), ExtResource("3_m56yh")]
+}
+
+[sub_resource type="Animation" id="Animation_316ah"]
+resource_name = "QuitClicked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/QuitButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_rjv1v"), ExtResource("11_rjv1v"), ExtResource("11_rjv1v")]
+}
+
+[sub_resource type="Animation" id="Animation_vpogl"]
+resource_name = "QuitMouseHover"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/QuitButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("12_wq6cd"), ExtResource("12_wq6cd"), ExtResource("12_wq6cd")]
+}
+
+[sub_resource type="Animation" id="Animation_vp4qy"]
+resource_name = "QuitNoAction"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/QuitButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_wg66t"), ExtResource("5_wg66t"), ExtResource("5_wg66t")]
+}
+
+[sub_resource type="Animation" id="Animation_q6hfs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/NewButton:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_m56yh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/QuitButton:icon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_wg66t")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/LoadButton:icon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_0rdet")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_68ohf"]
+_data = {
+"LoadClicked": SubResource("Animation_u3gpv"),
+"LoadMouseHover": SubResource("Animation_wy8wl"),
+"LoadNoAction": SubResource("Animation_0oete"),
+"MouseOverNew": SubResource("Animation_j0ddh"),
+"NewButttonClicked": SubResource("Animation_fbm4m"),
+"NewNoAction": SubResource("Animation_py8to"),
+"QuitClicked": SubResource("Animation_316ah"),
+"QuitMouseHover": SubResource("Animation_vpogl"),
+"QuitNoAction": SubResource("Animation_vp4qy"),
+"RESET": SubResource("Animation_q6hfs")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fx88a")
+
+[node name="Img0799" type="Sprite2D" parent="."]
+position = Vector2(577.5, 329.25)
+scale = Vector2(1.08671, 1.08794)
+texture = ExtResource("2_2qia1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057
+anchor_top = 0.656
+anchor_right = 0.229
+anchor_bottom = 0.972
+offset_left = 0.335999
+offset_top = -0.0880127
+offset_right = 1114.19
+offset_bottom = 1150.14
+grow_vertical = 2
+scale = Vector2(0.151, 0.151)
+
+[node name="NewButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+text = "
+"
+icon = ExtResource("3_m56yh")
+flat = true
+
+[node name="LoadButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "
+"
+icon = ExtResource("4_0rdet")
+flat = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+focus_neighbor_bottom = NodePath("../NewButton")
+text = "
+"
+icon = ExtResource("5_wg66t")
+flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qwmtw")
+volume_db = -14.084
+autoplay = true
+
+[node name="menu_art" type="Sprite2D" parent="."]
+position = Vector2(593, 343)
+texture = ExtResource("7_fv1im")
+
+[node name="logo_art" type="Sprite2D" parent="."]
+position = Vector2(581, 360)
+texture = ExtResource("8_m06bq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_68ohf")
+}
+
+[connection signal="mouse_entered" from="VBoxContainer/NewButton" to="." method="_on_new_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/NewButton" to="." method="_on_new_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/LoadButton" to="." method="_on_load_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LoadButton" to="." method="_on_load_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -66,13 +66,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b78gx"]
-size = Vector2(16, 26)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_efwri"]
 radius = 59.2284
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b78gx"]
+size = Vector2(16, 26)
+
 [node name="GreenBot" type="CharacterBody2D"]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 2
+safe_margin = 12.809
 script = ExtResource("1_3tcgj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -80,9 +84,6 @@ position = Vector2(0, 0.25)
 scale = Vector2(1, 1.02)
 sprite_frames = SubResource("SpriteFrames_yqiy2")
 animation = &"Front"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_b78gx")
 
 [node name="LargeShadow" type="Sprite2D" parent="."]
 position = Vector2(1, 14)
@@ -92,6 +93,9 @@ texture = ExtResource("11_e2a8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_efwri")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b78gx")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
