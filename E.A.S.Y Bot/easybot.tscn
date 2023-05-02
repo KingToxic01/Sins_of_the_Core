@@ -1,0 +1,172 @@
+[gd_scene load_steps=19 format=3 uid="uid://bnoo3c7jpg3gl"]
+
+[ext_resource type="Script" path="res://E.A.S.Y Bot/easybot.gd" id="1_abnb1"]
+[ext_resource type="Texture2D" uid="uid://c8jx8p2ydk8nd" path="res://Shadows/MediumShadow.png" id="1_xtwsd"]
+[ext_resource type="Texture2D" uid="uid://b4c60yq4ece2j" path="res://E.A.S.Y Bot/Untitled_Artwork (9).png" id="2_dwqe4"]
+[ext_resource type="Texture2D" uid="uid://cl2u01iv7fbdy" path="res://E.A.S.Y Bot/Untitled_Artwork (10).png" id="3_m60hc"]
+[ext_resource type="Texture2D" uid="uid://6ul010rs3m6v" path="res://E.A.S.Y Bot/Untitled_Artwork (8).png" id="4_16f2v"]
+[ext_resource type="Texture2D" uid="uid://bdiif6nhyl3x2" path="res://E.A.S.Y Bot/Untitled_Artwork (1).png" id="5_lwxsu"]
+[ext_resource type="Texture2D" uid="uid://bdhsu73jd6yq7" path="res://E.A.S.Y Bot/Untitled_Artwork (2).png" id="6_8ng7a"]
+[ext_resource type="Texture2D" uid="uid://c3w6xxkd05a7n" path="res://E.A.S.Y Bot/Untitled_Artwork (11).png" id="7_8fgqe"]
+[ext_resource type="Texture2D" uid="uid://cfj1boev3oicg" path="res://E.A.S.Y Bot/Untitled_Artwork (0).png" id="8_alohh"]
+[ext_resource type="Texture2D" uid="uid://doo3s8bhygb1p" path="res://E.A.S.Y Bot/Untitled_Artwork (3).png" id="9_nav8p"]
+[ext_resource type="Texture2D" uid="uid://blhacsfgp3uk4" path="res://E.A.S.Y Bot/Untitled_Artwork (4).png" id="10_p4erq"]
+[ext_resource type="Texture2D" uid="uid://c7t8br6ssa78u" path="res://E.A.S.Y Bot/Untitled_Artwork (5).png" id="11_ja6t3"]
+[ext_resource type="Texture2D" uid="uid://dff8xm3qmg66v" path="res://E.A.S.Y Bot/Untitled_Artwork (6).png" id="12_f5oso"]
+[ext_resource type="Texture2D" uid="uid://c6yvueg8fmtxd" path="res://E.A.S.Y Bot/Untitled_Artwork (7).png" id="13_kc5tv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_geou1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dwqe4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m60hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_16f2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m60hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_16f2v")
+}],
+"loop": true,
+"name": &"Firing",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lwxsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lwxsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lwxsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lwxsu")
+}],
+"loop": true,
+"name": &"IdleBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8ng7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8fgqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8ng7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8fgqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8ng7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8ng7a")
+}],
+"loop": true,
+"name": &"IdleFront",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_alohh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_alohh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_alohh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_alohh")
+}],
+"loop": true,
+"name": &"IdleRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8ng7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nav8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p4erq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ja6t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_f5oso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kc5tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dwqe4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m60hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_16f2v")
+}],
+"loop": true,
+"name": &"VacuumCharge",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rcvg"]
+height = 64.0
+
+[sub_resource type="Animation" id="Animation_bor2x"]
+resource_name = "Vacuumcharge"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlq07"]
+_data = {
+"Vacuumcharge": SubResource("Animation_bor2x")
+}
+
+[node name="EASYBOT" type="CharacterBody2D"]
+script = ExtResource("1_abnb1")
+
+[node name="MediumShadow" type="Sprite2D" parent="."]
+position = Vector2(2, 30)
+texture = ExtResource("1_xtwsd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_geou1")
+animation = &"Firing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_8rcvg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jlq07")
+}

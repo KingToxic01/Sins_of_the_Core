@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var speed = 67
+var speed = 100
+
 
 
 var player_chase = false
@@ -8,21 +9,26 @@ var sonata = null
 @onready var animation = $AnimatedSprite2D
 
 func _physics_process(delta):
+	velocity = Vector2.ZERO
 	if player_chase:
 		position +=  (sonata.position - position)/speed
 		animation.play("Front")
 	else :
 		animation.play("Idle")
+	
+	move_and_slide()
 
 
 func _on_area_2d_body_entered(body):
 	sonata = body
 	player_chase = true
+	animation.play("Front")
 
 
 func _on_area_2d_body_exited(body):
 	sonata = null
 	player_chase = false
+	animation.play("Idle")
 
 
 

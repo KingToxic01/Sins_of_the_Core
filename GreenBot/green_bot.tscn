@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bith4coo2gd4x" path="res://GreenBot/robot1_side3.png" id="10_xfxga"]
 [ext_resource type="Texture2D" uid="uid://cifo4dta3wtcj" path="res://Shadows/LargeShadow.png" id="11_e2a8r"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_efwri"]
+radius = 59.2284
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_yqiy2"]
 animations = [{
 "frames": [{
@@ -50,6 +53,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_4ma34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ma34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ma34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ma34")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_drv2p")
 }, {
 "duration": 1.0,
@@ -66,9 +86,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_efwri"]
-radius = 59.2284
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b78gx"]
 size = Vector2(16, 26)
 
@@ -79,20 +96,21 @@ collision_mask = 2
 safe_margin = 12.809
 script = ExtResource("1_3tcgj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 0.25)
-scale = Vector2(1, 1.02)
-sprite_frames = SubResource("SpriteFrames_yqiy2")
-animation = &"Front"
-
-[node name="LargeShadow" type="Sprite2D" parent="."]
-position = Vector2(1, 14)
-texture = ExtResource("11_e2a8r")
-
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_efwri")
+
+[node name="LargeShadow" type="Sprite2D" parent="."]
+position = Vector2(0, 13.5)
+scale = Vector2(0.9375, 0.95)
+texture = ExtResource("11_e2a8r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 0.25)
+scale = Vector2(1, 1.02)
+sprite_frames = SubResource("SpriteFrames_yqiy2")
+animation = &"Idle"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b78gx")
