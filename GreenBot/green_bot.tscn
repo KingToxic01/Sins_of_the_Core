@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd123emum4cwy"]
+[gd_scene load_steps=16 format=3 uid="uid://cd123emum4cwy"]
 
 [ext_resource type="Script" path="res://GreenBot/GreenBot.gd" id="1_3tcgj"]
 [ext_resource type="Texture2D" uid="uid://86lnxau1ngxh" path="res://GreenBot/robot1_back1.png" id="2_lrebl"]
@@ -11,9 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cy6liyt6r1g14" path="res://GreenBot/robot1_side2.png" id="9_hgc83"]
 [ext_resource type="Texture2D" uid="uid://bith4coo2gd4x" path="res://GreenBot/robot1_side3.png" id="10_xfxga"]
 [ext_resource type="Texture2D" uid="uid://cifo4dta3wtcj" path="res://Shadows/LargeShadow.png" id="11_e2a8r"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_efwri"]
-radius = 59.2284
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yqiy2"]
 animations = [{
@@ -86,20 +83,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_efwri"]
+radius = 59.2284
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b78gx"]
-size = Vector2(16, 26)
+size = Vector2(17, 26)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ah461"]
+radius = 26.0
 
 [node name="GreenBot" type="CharacterBody2D"]
 disable_mode = 2
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 safe_margin = 12.809
 script = ExtResource("1_3tcgj")
-
-[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_efwri")
 
 [node name="LargeShadow" type="Sprite2D" parent="."]
 position = Vector2(0, 13.5)
@@ -107,13 +105,26 @@ scale = Vector2(0.9375, 0.95)
 texture = ExtResource("11_e2a8r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 0.25)
-scale = Vector2(1, 1.02)
+position = Vector2(0.25, 0.25)
+scale = Vector2(1.01724, 1.02)
 sprite_frames = SubResource("SpriteFrames_yqiy2")
-animation = &"Idle"
+animation = &"Front"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="ChaseArea" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+shape = SubResource("CircleShape2D_efwri")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["Enemy"]]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_b78gx")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_ah461")
+
+[connection signal="body_entered" from="ChaseArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

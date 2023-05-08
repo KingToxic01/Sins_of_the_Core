@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 var speed = 100
-
+var health = 100
+var player_in_zone = false
 
 
 var player_chase = false
@@ -12,11 +13,22 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO
 	if player_chase:
 		position +=  (sonata.position - position)/speed
-		animation.play("Front")
+		animation.play("Left")
+		
+		if (sonata.position.x - position.x) < 0:
+			animation.flip_h = false
+		else :
+			animation.flip_h = true
+		
 	else :
 		animation.play("Idle")
 	
+	
 	move_and_slide()
+
+func Enemy():
+	pass
+	
 
 
 func _on_area_2d_body_entered(body):
@@ -31,8 +43,21 @@ func _on_area_2d_body_exited(body):
 	animation.play("Idle")
 
 
+func _on_attack_area_body_entered(body):
+	if body.has_method("Player"):
+		player_in_zone = true
 
 
+func _on_attack_area_body_exited(body):
+	if body.has_method("Player"):
+		player_in_zone = false
+
+func Enemy_Damage():
+	if player_in_zone and Global.player_current_attacking == true:
+		health = health - 20
+		print("Enemy has:", health)
+	if health <= 0:
+		self.queue_free()
 
 
 
@@ -146,5 +171,8 @@ func _on_area_2d_body_exited(body):
 #func _on_area_2d_area_entered(area):
 #	print("entered")
 #	player = area
+
+
+
 
 

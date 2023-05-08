@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
+var attack_cooldown = true
+var enemy_in_attack_range = false
 var speed = 80
-
+var attack_in_progress = false
 var current_direct = "none"
 @onready var animation = $AnimationPlayer
+@onready var attack_deal = $Deal_attack_timer
+
 #parameters/Idle/blend_position
 	
 
@@ -16,6 +20,7 @@ func _ready():
 	animation.play("Idlefront")
 
 func _physics_process(delta):
+	EnemyAttack()
 	PlayerMovement(delta)
 
 func PlayerMovement(delta):
@@ -53,11 +58,7 @@ func PlayerMovement(delta):
 		velocity.x = 0
 		velocity.y = 0
 
-	if  Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		$Area2D/CollisionShape2D.disabled = false
-		animation.play("frontAttack")
-	else :
-		$Area2D/CollisionShape2D.disabled = true
+	
 	
 	move_and_slide()
 
@@ -69,19 +70,22 @@ func PlayAnimator(movement):
 		if movement == 1:
 			animation.play("walkside")
 		elif  movement == 0:
-			animation.play("Idleside")
-	
+			if attack_in_progress == false:
+				animation.play("Idleside")
+			
 	if dir == "left":
 		if movement == 1:
 			animation.play("walkleft")
 		elif  movement == 0:
-			animation.play("idleleft")
+			if attack_in_progress == false:
+				animation.play("idleleft")
 			
 	if dir == "down":
 		if movement == 1:
 			animation.play("walkfront")
 		elif  movement == 0:
-			animation.play("Idlefront")
+			if attack_in_progress == false:
+				animation.play("Idlefront")
 			
 	if dir == "up":
 		if movement == 1:
@@ -89,7 +93,44 @@ func PlayAnimator(movement):
 		elif  movement == 0:
 			animation.play("idleback")
 		
+func _on_front_attack_body_entered(body):
+	if body.has_method("Enemy"):
+		enemy_in_attack_range = true
 
+
+func _on_front_attack_body_exited(body):
+	if body.has_method("Enemy"):
+		enemy_in_attack_range = false
+		
+
+func EnemyAttack():
+	if enemy_in_attack_range and attack_cooldown == true:
+		attack_cooldown = false
+		$AttackTimer.start()
+		print("Enemy is attacking")
+
+
+func _on_attack_timer_timeout():
+	attack_cooldown = true 
+	
+func Attack():
+	var dir = current_direct
+	
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		Global.player_current_attacking = true
+		attack_in_progress = true
+		if dir == "right":
+			animation.flip_h = false
+			animation.play("Side Attack")
+			attack_deal.start()
+		if dir == "left":
+			animation.flip_h = true
+			animation.play("Side Attack")
+			attack_deal.start()
+		if dir == "down":
+			animation.play("frontAttack")
+func Player():
+	pass
 
 
 
@@ -161,6 +202,9 @@ func PlayAnimator(movement):
 	
 	
 	
+
+
+
 
 
 

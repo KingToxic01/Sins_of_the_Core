@@ -151,7 +151,7 @@ _data = {
 "Vacuumcharge": SubResource("Animation_bor2x")
 }
 
-[node name="EASYBOT" type="CharacterBody2D"]
+[node name="EASYBOT" type="CharacterBody2D" groups=["Boss", "Enemy"]]
 script = ExtResource("1_abnb1")
 
 [node name="MediumShadow" type="Sprite2D" parent="."]

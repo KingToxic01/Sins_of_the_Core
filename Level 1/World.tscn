@@ -4314,14 +4314,14 @@ layer_2/tile_data = PackedInt32Array(262153, 458755, 2, 262156, 458755, 2, 58984
 [node name="GreenBot" parent="." instance=ExtResource("2_oipyf")]
 position = Vector2(158, 319)
 
+[node name="GreenBot4" parent="." instance=ExtResource("2_oipyf")]
+position = Vector2(291, 419)
+
 [node name="GreenBot2" parent="." instance=ExtResource("2_oipyf")]
 position = Vector2(609, 182)
 
 [node name="GreenBot3" parent="." instance=ExtResource("2_oipyf")]
 position = Vector2(286, 565)
-
-[node name="GreenBot4" parent="." instance=ExtResource("2_oipyf")]
-position = Vector2(291, 419)
 
 [node name="GreenBot5" parent="." instance=ExtResource("2_oipyf")]
 position = Vector2(427, 140)
