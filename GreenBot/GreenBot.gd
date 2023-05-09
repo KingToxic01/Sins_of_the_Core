@@ -24,7 +24,7 @@ func _physics_process(delta):
 		animation.play("Idle")
 	
 	
-	move_and_slide()
+	move_and_collide(Vector2.ZERO)
 
 func Enemy():
 	pass

@@ -4362,4 +4362,4 @@ position_smoothing_enabled = true
 position_smoothing_speed = 100.0
 
 [node name="EASYBOT" parent="." instance=ExtResource("7_3uon5")]
-position = Vector2(600, 431)
+position = Vector2(596, 431)

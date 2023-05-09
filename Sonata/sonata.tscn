@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cip742yfcgwr6"]
+[gd_scene load_steps=43 format=3 uid="uid://cip742yfcgwr6"]
 
 [ext_resource type="Script" path="res://Sonata/sonata.gd" id="1_0u221"]
 [ext_resource type="Texture2D" uid="uid://de4g0hf2o5led" path="res://Sonata/Sonata.png" id="1_pdquh"]
@@ -341,6 +341,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(1.5, 6.5)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_0uado"]
 resource_name = "Side Attack"
@@ -392,6 +404,82 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(13, 1), Vector2(8, 2), Vector2(8, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0vwvo"]
+resource_name = "attack_left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"sideattack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Area2D/CollisionShape2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, false, false, true, true, true, false, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Area2D/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-9, 3), Vector2(-9, 3)]
 }
 
 [sub_resource type="Animation" id="Animation_84vfo"]
@@ -586,6 +674,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ymgk6"]
 resource_name = "walkside"
@@ -615,6 +715,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_887vg"]
 _data = {
@@ -622,6 +734,7 @@ _data = {
 "Idleside": SubResource("Animation_5y5ur"),
 "RESET": SubResource("Animation_hojl4"),
 "Side Attack": SubResource("Animation_0uado"),
+"attack_left": SubResource("Animation_0vwvo"),
 "frontAttack": SubResource("Animation_84vfo"),
 "idleback": SubResource("Animation_rn15b"),
 "idleleft": SubResource("Animation_kvlp5"),
@@ -652,6 +765,7 @@ position = Vector2(0, -0.5)
 scale = Vector2(1, 0.96875)
 sprite_frames = SubResource("SpriteFrames_x5opk")
 animation = &"walkfront"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
@@ -683,7 +797,9 @@ shape = SubResource("RectangleShape2D_mjqn3")
 [node name="AttackTimer" type="Timer" parent="."]
 
 [node name="Deal_attack_timer" type="Timer" parent="."]
+wait_time = 0.4
 
 [connection signal="body_entered" from="frontAttack" to="." method="_on_front_attack_body_entered"]
 [connection signal="body_exited" from="frontAttack" to="." method="_on_front_attack_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]

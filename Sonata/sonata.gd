@@ -22,6 +22,7 @@ func _ready():
 func _physics_process(delta):
 	EnemyAttack()
 	PlayerMovement(delta)
+	Attack()
 
 func PlayerMovement(delta):
 	if Input.is_action_pressed("right"):
@@ -57,7 +58,7 @@ func PlayerMovement(delta):
 		PlayAnimator(0)
 		velocity.x = 0
 		velocity.y = 0
-
+	
 	
 	
 	move_and_slide()
@@ -116,19 +117,25 @@ func _on_attack_timer_timeout():
 func Attack():
 	var dir = current_direct
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_action_just_pressed("Attack"):
 		Global.player_current_attacking = true
 		attack_in_progress = true
 		if dir == "right":
-			animation.flip_h = false
 			animation.play("Side Attack")
 			attack_deal.start()
 		if dir == "left":
-			animation.flip_h = true
-			animation.play("Side Attack")
+			animation.play("attack_left")
 			attack_deal.start()
 		if dir == "down":
 			animation.play("frontAttack")
+			attack_deal.start()
+
+
+func _on_deal_attack_timer_timeout():
+	attack_deal.stop() # Replace with function body.
+	Global.player_current_attacking = false
+	attack_in_progress = false
+
 func Player():
 	pass
 
@@ -202,6 +209,8 @@ func Player():
 	
 	
 	
+
+
 
 
 
