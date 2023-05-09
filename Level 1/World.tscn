@@ -1,15 +1,10 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=21 format=3 uid="uid://c63fndom0x2nt"]
-=======
-[gd_scene load_steps=10 format=3 uid="uid://c63fndom0x2nt"]
->>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://cip742yfcgwr6" path="res://Sonata/sonata.tscn" id="1_dlg5m"]
 [ext_resource type="Texture2D" uid="uid://b6jcpmdw3gxr2" path="res://World/DirtTileset.png" id="1_saps6"]
 [ext_resource type="PackedScene" uid="uid://cd123emum4cwy" path="res://GreenBot/green_bot.tscn" id="2_oipyf"]
 [ext_resource type="Texture2D" uid="uid://lvhc38pkfjva" path="res://World/GrassBackground.png" id="2_skdki"]
 [ext_resource type="Texture2D" uid="uid://2kgw8bn5v26y" path="res://World/tilemap garbage.png" id="3_p5l2b"]
-<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://Level 1/HealthBar.gd" id="6_8eixr"]
 [ext_resource type="PackedScene" uid="uid://bnoo3c7jpg3gl" path="res://E.A.S.Y Bot/easybot.tscn" id="7_3uon5"]
 
@@ -39,8 +34,6 @@ tile_data = PackedInt32Array(0, 131075, 4, 65536, 589827, 16, 131072, 589827, 14
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_fqi0t"]
 tile_data = PackedInt32Array(0, 589827, 15, 65536, 589827, 16, 131072, 131075, 4, 1, 720899, 18, 65537, 720899, 17, 131073, 393219, 15, 2, 786435, 18, 65538, 786435, 17, 131074, 458755, 15)
-=======
->>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n47w2"]
 resource_name = "Dirt"
@@ -4338,6 +4331,29 @@ position = Vector2(420, 299)
 
 [node name="Sonata" parent="." instance=ExtResource("1_dlg5m")]
 position = Vector2(154, 143.955)
+
+[node name="HealthBar" type="Control" parent="Sonata"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_8eixr")
+
+[node name="Background" type="TextureRect" parent="Sonata/HealthBar"]
+layout_mode = 0
+offset_left = -183.5
+offset_top = -105.955
+offset_right = -78.5
+offset_bottom = -84.955
+expand_mode = 3
+
+[node name="Bar" type="TextureRect" parent="Sonata/HealthBar"]
+layout_mode = 0
+offset_left = -181.0
+offset_top = -103.955
+offset_right = -81.0
+offset_bottom = -86.955
+expand_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="Sonata"]
 position = Vector2(0, -3.955)
