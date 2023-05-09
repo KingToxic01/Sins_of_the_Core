@@ -1,47 +1,208 @@
 extends CharacterBody2D
-signal decrease_health()
 
+<<<<<<< Updated upstream
+var speed = 100
+var health = 100
+var player_in_zone = false
+
+=======
+var speed = 40
+var health = 100
+var player_inattack_zone = false
+>>>>>>> Stashed changes
+
+var player_chase = false
+var sonata = null
+@onready var animation = $AnimatedSprite2D
+
+func _physics_process(delta):
+<<<<<<< Updated upstream
+	velocity = Vector2.ZERO
+=======
+	deal_with_damage()
+>>>>>>> Stashed changes
+	if player_chase:
+		position +=  (sonata.position - position)/speed
+		animation.play("Left")
+		
+		if (sonata.position.x - position.x) < 0:
+			animation.flip_h = false
+		else :
+			animation.flip_h = true
+		
+	else :
+		animation.play("Idle")
+	
+	
+	move_and_collide(Vector2.ZERO)
+
+func Enemy():
+	pass
+	
+
+
+
+func _on_area_2d_body_entered(body):
+	sonata = body
+	player_chase = true
+	animation.play("Front")
+
+
+func _on_area_2d_body_exited(body):
+	sonata = null
+	player_chase = false
+	animation.play("Idle")
+
+func enemy():
+	pass
+
+<<<<<<< Updated upstream
+func _on_attack_area_body_entered(body):
+	if body.has_method("Player"):
+		player_in_zone = true
+
+
+func _on_attack_area_body_exited(body):
+	if body.has_method("Player"):
+		player_in_zone = false
+
+func Enemy_Damage():
+	if player_in_zone and Global.player_current_attacking == true:
+		health = health - 20
+		print("Enemy has:", health)
+	if health <= 0:
+		self.queue_free()
+=======
+func _on_enemy_hitbox_body_entered(body):
+	if body.has_method("player"):
+		player_inattack_zone = true
+
+func _on_enemy_hitbox_body_exited(body):
+	if body.has_method("player"):
+		player_inattack_zone = false
+		
+func deal_with_damage():
+	if player_inattack_zone and global.player_current_attack == true:
+		health = health - 33
+		print("rustbot health =", health)
+		if health <= 0:
+			self.queue_free()
+>>>>>>> Stashed changes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#var enemy_velocity = Vector2.ZERO
+#@onready var attack_timer = $AttackTimer
 #
-#@export var speed = 100
-#@export var detection_range = 200
-#@export var damage_amount = 10
+#var player = null
+#var randomnum 
+#var target
 #
 #
-#var target = null
+#enum {
+#	SURROUND,
+#	ATTACK,
+#	HIT,
+#}
+#
+#var state = SURROUND
+#
+#func _ready():
+#	var rng = RandomNumberGenerator.new()
+#	rng.randomize()
+#	randomnum = rng.randf()
+#
+#
 #
 #func _physics_process(delta):
-#	if target != null:
-#		# Calculate the vector from the enemy's position to the player's position
-#		var direction = target.position - position
-#		direction = direction.normalized()
+#	match state:
+#		SURROUND:
+#			move(get_circle_position(randomnum), delta)
 #
-#		# Move the enemy towards the player
-#		move_and_slide()
+#		ATTACK:
+#			move(player.global_position, delta)
 #
-#		# Rotate the enemy towards the player
-#		look_at(target.position)
+#		HIT:
+#			print("Hit")
+#			move(player.global_position, delta)
 #
-#		# Check for collision with player
-#		var collision = move_and_collide(direction * speed * delta)
-#		if collision and collision.collider.name == "Player":
-#			# Remove health from the player
-#			var player = collision.collider
-#			player.health -= damage_amount
+#			# enemy attack anim
+#
+#
+#func move(target, delta):
+#	var direction = (target - global_position).normalized()
+#	var desired_velocity = direction * speed
+#	var steering = (desired_velocity - velocity) * delta * 2.5
+#	enemy_velocity += steering
+#	enemy_velocity = move_and_slide()
+#
+#
+#func _on_area_2d_body_entered(body):
+#	print("entered")
+#	player = body
+#
+#func _on_area_2d_body_exited(_body):
+#	print("Exit")
+#	player = null
+#
+#func get_circle_position(random):
+#	var kill_circle_centre = player.global_position
+#	var radius = 30
+#	var angle = random * PI * 2;
+#	var x = kill_circle_centre.x + cos(angle) * radius;
+#	var y = kill_circle_centre.y + sin(angle) * radius;
+#
+#
+#	return Vector2(x, y)
+#
+#func _on_attack_timer_timeout():
+#	state = ATTACK
+#
+#
+#func _on_area_2d_area_entered(area):
+#	print("entered")
+#	player = area
 
 
-#func _on_detection_area_area_entered(area):
-#	if area.name == "Player":
-#		target = area
-#
-#func _on_detection_area_area_exited(area):
-#	if area.name == "Player":
-#		target = null
-#
-#
-#func EnemyHit():
-#	var time = Timer.new()
-#	time.set_wait_time(0.1)
-#	time.set_one_shot(true)
-#	self.add_child(time)
-#	time.start()
-#	await (time)
+
+
+
