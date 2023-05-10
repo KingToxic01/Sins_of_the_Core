@@ -1,16 +1,26 @@
 extends CharacterBody2D
 
+<<<<<<< Updated upstream
 var speed = 100
 var health = 100
 var player_in_zone = false
 
+=======
+var speed = 40
+var health = 100
+var player_inattack_zone = false
+>>>>>>> Stashed changes
 
 var player_chase = false
 var sonata = null
 @onready var animation = $AnimatedSprite2D
 
 func _physics_process(delta):
+<<<<<<< Updated upstream
 	velocity = Vector2.ZERO
+=======
+	deal_with_damage()
+>>>>>>> Stashed changes
 	if player_chase:
 		position +=  (sonata.position - position)/speed
 		animation.play("Left")
@@ -31,6 +41,7 @@ func Enemy():
 	
 
 
+
 func _on_area_2d_body_entered(body):
 	sonata = body
 	player_chase = true
@@ -42,7 +53,10 @@ func _on_area_2d_body_exited(body):
 	player_chase = false
 	animation.play("Idle")
 
+func enemy():
+	pass
 
+<<<<<<< Updated upstream
 func _on_attack_area_body_entered(body):
 	if body.has_method("Player"):
 		player_in_zone = true
@@ -58,6 +72,22 @@ func Enemy_Damage():
 		print("Enemy has:", health)
 	if health <= 0:
 		self.queue_free()
+=======
+func _on_enemy_hitbox_body_entered(body):
+	if body.has_method("player"):
+		player_inattack_zone = true
+
+func _on_enemy_hitbox_body_exited(body):
+	if body.has_method("player"):
+		player_inattack_zone = false
+		
+func deal_with_damage():
+	if player_inattack_zone and global.player_current_attack == true:
+		health = health - 33
+		print("rustbot health =", health)
+		if health <= 0:
+			self.queue_free()
+>>>>>>> Stashed changes
 
 
 
