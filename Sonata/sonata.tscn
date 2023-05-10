@@ -205,10 +205,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8djte"]
-radius = 8.0
+radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg2ig"]
-size = Vector2(11, 10.5)
+size = Vector2(16, 10.5)
 
 [sub_resource type="Animation" id="Animation_ks54v"]
 resource_name = "Idlefront"
@@ -745,6 +745,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsjei"]
+<<<<<<< Updated upstream
 size = Vector2(22.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjqn3"]
@@ -753,6 +754,11 @@ size = Vector2(7.77958, 10.9242)
 [node name="Sonata" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
 collision_mask = 3
+=======
+size = Vector2(22, 28)
+
+[node name="Sonata" type="CharacterBody2D"]
+>>>>>>> Stashed changes
 script = ExtResource("1_0u221")
 metadata/_edit_vertical_guides_ = [-576.0]
 
@@ -783,6 +789,7 @@ libraries = {
 
 [node name="frontAttack" type="Area2D" parent="." groups=["Hit"]]
 
+<<<<<<< Updated upstream
 [node name="CollisionShape2D" type="CollisionShape2D" parent="frontAttack"]
 position = Vector2(1.5, 6.5)
 shape = SubResource("RectangleShape2D_wsjei")
@@ -803,3 +810,32 @@ wait_time = 0.4
 [connection signal="body_exited" from="frontAttack" to="." method="_on_front_attack_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="Deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+=======
+[node name="player_hitbox" type="Area2D" parent="." groups=["Hit"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_wsjei")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="deal_attack_timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+visibility_layer = 513
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 105.0
+offset_bottom = 7.0
+scale = Vector2(0.15, 0.15)
+show_percentage = false
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+>>>>>>> Stashed changes
