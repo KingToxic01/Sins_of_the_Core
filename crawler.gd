@@ -8,6 +8,7 @@ var can_take_damage = true
 
 func _physics_process(delta):
 	take_damage()
+	update_health()
 	
 	if player_chase:
 		position += (sonata.position - position)/speed
@@ -43,7 +44,7 @@ func _on_hitbox_body_exited(body):
 func take_damage():
 	if player_inattack_zone and global.player_current_attack == true:
 		if can_take_damage == true:
-			health = health - 25
+			health = health - 20
 			$take_damage_cooldown.start()
 			$AudioStreamPlayer2D.play()
 			can_take_damage = false
@@ -55,3 +56,13 @@ func take_damage():
 
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true
+
+func update_health():
+	var healthbar = $enemybar
+	
+	healthbar.value = health
+	
+	if health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true

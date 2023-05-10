@@ -42,6 +42,15 @@ wait_time = 0.5
 stream = ExtResource("3_83dv4")
 volume_db = -11.086
 
+[node name="enemybar" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+offset_left = -24.0
+offset_top = 19.0
+offset_right = 323.0
+offset_bottom = 46.0
+scale = Vector2(0.15, 0.15)
+show_percentage = false
+
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
