@@ -1,4 +1,7 @@
 extends CharacterBody2D
+signal life_changed(Player_Hearts)
+var max_heart: int = 4
+var hearts: float = max_heart
 
 var attack_cooldown = true
 var enemy_in_attack_range = false
@@ -20,10 +23,10 @@ func _ready():
 	animation.play("Idlefront")
 
 func _physics_process(delta):
-	EnemyAttack()
+	
 	PlayerMovement(delta)
 	Attack()
-
+	
 func PlayerMovement(delta):
 	if Input.is_action_pressed("right"):
 		current_direct = "right"

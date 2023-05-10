@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs6lsv7p0k63d"
-path="res://.godot/imported/Bat.png-38405154cd5b8ff1c5e2fcf1cef1c3e6.ctex"
+uid="uid://cd0k331ximw37"
+path="res://.godot/imported/loot_gear.png-3283b2144725dfe1cbea6e60a6e8f26a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Bat.png"
-dest_files=["res://.godot/imported/Bat.png-38405154cd5b8ff1c5e2fcf1cef1c3e6.ctex"]
+source_file="res://UI/loot_gear.png"
+dest_files=["res://.godot/imported/loot_gear.png-3283b2144725dfe1cbea6e60a6e8f26a.ctex"]
 
 [params]
 

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b77pi8xpr3yww"]
+
+[ext_resource type="Texture2D" uid="uid://bx3lkcctunk0a" path="res://UI/HeartUIFull.png" id="2_7a8o7"]
+
+[node name="HealthUI" type="CanvasLayer"]
+
+[node name="life" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Hearts" type="TextureRect" parent="life"]
+layout_mode = 0
+offset_right = 59.0
+offset_bottom = 11.0
+scale = Vector2(2.178, 2.178)
+texture = ExtResource("2_7a8o7")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true

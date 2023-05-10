@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c63fndom0x2nt"]
+[gd_scene load_steps=22 format=3 uid="uid://c63fndom0x2nt"]
 
 [ext_resource type="PackedScene" uid="uid://cip742yfcgwr6" path="res://Sonata/sonata.tscn" id="1_dlg5m"]
 [ext_resource type="Texture2D" uid="uid://b6jcpmdw3gxr2" path="res://World/DirtTileset.png" id="1_saps6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://2kgw8bn5v26y" path="res://World/tilemap garbage.png" id="3_p5l2b"]
 [ext_resource type="Script" path="res://Level 1/HealthBar.gd" id="6_8eixr"]
 [ext_resource type="PackedScene" uid="uid://bnoo3c7jpg3gl" path="res://E.A.S.Y Bot/easybot.tscn" id="7_3uon5"]
+[ext_resource type="PackedScene" uid="uid://b77pi8xpr3yww" path="res://UI/health_ui.tscn" id="8_t8fsf"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_o3ey3"]
 tile_data = PackedInt32Array(0, 3014659, 13, 65536, 2818051, 14, 131072, 2818051, 15, 1, 2883587, 13, 65537, 2883587, 14, 131073, 2883587, 15, 2, 2949123, 13, 65538, 2949123, 14, 131074, 2949123, 15, 3, 2818051, 13, 65539, 2818051, 14, 131075, 2818051, 15, 4, 2883587, 13, 65540, 2883587, 14, 131076, 2883587, 15, 5, 2949123, 13, 65541, 2949123, 14, 131077, 2818051, 14, 6, 3014659, 13, 65542, 3014659, 14, 131078, 3014659, 15, 7, 3080195, 13, 65543, 3080195, 14, 131079, 3080195, 15, 8, 3145731, 13, 65544, 3145731, 14, 131080, 3145731, 15)
@@ -4363,3 +4364,5 @@ position_smoothing_speed = 100.0
 
 [node name="EASYBOT" parent="." instance=ExtResource("7_3uon5")]
 position = Vector2(596, 431)
+
+[node name="HealthUI" parent="." instance=ExtResource("8_t8fsf")]

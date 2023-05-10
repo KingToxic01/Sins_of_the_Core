@@ -11,20 +11,22 @@ var sonata = null
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO
-	if player_chase:
-		position +=  (sonata.position - position)/speed
-		animation.play("Left")
+	
 		
+	if  player_chase:
+		position +=  (sonata.position - position)/speed
+		animation.play("Front")
+		if position.y:
+			animation.play("Left")
 		if (sonata.position.x - position.x) < 0:
 			animation.flip_h = false
 		else :
 			animation.flip_h = true
-		
 	else :
 		animation.play("Idle")
 	
 	
-	move_and_collide(Vector2.ZERO)
+	move_and_collide(velocity)
 
 func Enemy():
 	pass
@@ -34,7 +36,7 @@ func Enemy():
 func _on_area_2d_body_entered(body):
 	sonata = body
 	player_chase = true
-	animation.play("Front")
+	
 
 
 func _on_area_2d_body_exited(body):
