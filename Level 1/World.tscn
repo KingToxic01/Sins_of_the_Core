@@ -4316,32 +4316,6 @@ layer_2/tile_data = PackedInt32Array(262153, 458755, 2, 262156, 458755, 2, 58984
 [node name="Sonata" parent="." instance=ExtResource("1_dlg5m")]
 position = Vector2(154, 143.955)
 
-<<<<<<< Updated upstream
-=======
-[node name="HealthBar" type="Control" parent="Sonata"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("6_8eixr")
-
-[node name="Background" type="TextureRect" parent="Sonata/HealthBar"]
-layout_mode = 0
-offset_left = -183.5
-offset_top = -105.955
-offset_right = -78.5
-offset_bottom = -84.955
-expand_mode = 3
-
-[node name="Bar" type="TextureRect" parent="Sonata/HealthBar"]
-layout_mode = 0
-offset_left = -185.0
-offset_top = -84.0
-offset_right = -85.0
-offset_bottom = -60.0
-expand_mode = 3
-
->>>>>>> Stashed changes
 [node name="Camera2D" type="Camera2D" parent="Sonata"]
 position = Vector2(0, -3.955)
 zoom = Vector2(3, 3)

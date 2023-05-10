@@ -3,11 +3,6 @@ extends CharacterBody2D
 var speed = 100
 var health = 100
 var player_in_zone = false
-<<<<<<< Updated upstream
-=======
-var  can_take_dam = true
-
->>>>>>> Stashed changes
 var player_chase = false
 var sonata = null
 @onready var animation = $AnimatedSprite2D
@@ -16,12 +11,12 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO
 	if player_chase:
 		position +=  (sonata.position - position)/speed
-		animation.play("Front")
+		animation.play("Left")
 		
-#		if (sonata.position.x - position.x) < 0:
-#			animation.flip_h = false
-#		else :
-#			animation.flip_h = true
+		if (sonata.position.x - position.x) < 0:
+			animation.flip_h = false
+		else :
+			animation.flip_h = true
 		
 	else :
 		animation.play("Idle")
@@ -32,11 +27,14 @@ func _physics_process(delta):
 func Enemy():
 	pass
 	
+
+
 func _on_area_2d_body_entered(body):
 	sonata = body
 	player_chase = true
 	animation.play("Front")
-	
+
+
 func _on_area_2d_body_exited(body):
 	sonata = null
 	player_chase = false
@@ -54,16 +52,10 @@ func _on_attack_area_body_exited(body):
 
 func Enemy_Damage():
 	if player_in_zone and Global.player_current_attacking == true:
-		if can_take_dam == true:
-			health = health - 20
-			$take_damage_cooldown.start()
-			can_take_dam = false
-			print("Enemy has:", health)
-			if health <= 0:
-				self.queue_free()
-
-func _on_take_damage_cooldown_timeout():
-	can_take_dam = true
+		health = health - 20
+		print("Enemy has:", health)
+	if health <= 0:
+		self.queue_free()
 
 
 
@@ -104,7 +96,6 @@ func _on_take_damage_cooldown_timeout():
 
 
 
-<<<<<<< Updated upstream
 
 
 #var enemy_velocity = Vector2.ZERO
@@ -184,5 +175,3 @@ func enemy():
 	pass
 
 
-=======
->>>>>>> Stashed changes
