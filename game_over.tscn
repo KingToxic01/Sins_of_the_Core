@@ -1,0 +1,226 @@
+[gd_scene load_steps=17 format=3 uid="uid://84st826xhwa1"]
+
+[ext_resource type="Texture2D" uid="uid://b18fafa21mpty" path="res://Menu buttons and Logo/Untitled_Artwork (2).png" id="1_cw4hh"]
+[ext_resource type="Script" path="res://game_over.gd" id="1_dm5yv"]
+[ext_resource type="Texture2D" uid="uid://emi7042u822r" path="res://Menu buttons and Logo/Untitled_Artwork.png" id="2_kloxg"]
+[ext_resource type="Texture2D" uid="uid://c60nj8pvkput" path="res://Menu buttons and Logo/Untitled_Artwork (6).png" id="4_jatbv"]
+[ext_resource type="Texture2D" uid="uid://dr1p2foqmbwl8" path="res://Menu buttons and Logo/Untitled_Artwork (3).png" id="5_sy8xo"]
+[ext_resource type="Texture2D" uid="uid://db03tgxlq74qt" path="res://Menu buttons and Logo/Untitled_Artwork (5).png" id="6_h3q7d"]
+[ext_resource type="Texture2D" uid="uid://duw06ymska08m" path="res://Menu buttons and Logo/Untitled_Artwork (8).png" id="7_vj75g"]
+
+[sub_resource type="Animation" id="Animation_7n4dg"]
+resource_name = "Letters"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1, 1.3, 1.6, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.560784, 0.560784, 0.560784, 1), Color(0.94902, 0, 0, 1), Color(0.560784, 0.560784, 0.560784, 1), Color(0, 0, 0, 1), Color(0.94902, 0, 0, 1), Color(0.560784, 0.560784, 0.560784, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dpeca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("New:icon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_kloxg")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Quit:icon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_cw4hh")]
+}
+
+[sub_resource type="Animation" id="Animation_b415q"]
+resource_name = "newclicked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("New:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_kloxg"), ExtResource("4_jatbv"), ExtResource("2_kloxg")]
+}
+
+[sub_resource type="Animation" id="Animation_sld83"]
+resource_name = "NewIdle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("New:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_kloxg"), ExtResource("2_kloxg")]
+}
+
+[sub_resource type="Animation" id="Animation_t4s8v"]
+resource_name = "NewHover"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("New:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_sy8xo"), ExtResource("5_sy8xo")]
+}
+
+[sub_resource type="Animation" id="Animation_lpcwh"]
+resource_name = "IdleQuit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quit:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_cw4hh"), ExtResource("1_cw4hh")]
+}
+
+[sub_resource type="Animation" id="Animation_lhhc3"]
+resource_name = "Hoverquit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quit:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_h3q7d"), ExtResource("6_h3q7d")]
+}
+
+[sub_resource type="Animation" id="Animation_xg1yl"]
+resource_name = "QuitKLick"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quit:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_vj75g"), ExtResource("7_vj75g")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gj6jn"]
+_data = {
+"Hoverquit": SubResource("Animation_lhhc3"),
+"IdleQuit": SubResource("Animation_lpcwh"),
+"Letters": SubResource("Animation_7n4dg"),
+"NewHover": SubResource("Animation_t4s8v"),
+"NewIdle": SubResource("Animation_sld83"),
+"QuitKLick": SubResource("Animation_xg1yl"),
+"RESET": SubResource("Animation_dpeca"),
+"newclicked": SubResource("Animation_b415q")
+}
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dm5yv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 645.0
+color = Color(0.141176, 0.141176, 0.121569, 1)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 145.0
+offset_top = 41.0
+offset_right = 547.089
+offset_bottom = 202.049
+scale = Vector2(2.216, 2.216)
+text = " SYSTEM DOWN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="New" type="Button" parent="."]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 347.0
+offset_right = 1578.0
+offset_bottom = 796.0
+scale = Vector2(0.188, 0.188)
+icon = ExtResource("2_kloxg")
+flat = true
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 692.0
+offset_top = 347.0
+offset_right = 2002.0
+offset_bottom = 796.0
+scale = Vector2(0.188, 0.188)
+icon = ExtResource("1_cw4hh")
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gj6jn")
+}
+
+[connection signal="mouse_entered" from="New" to="." method="_on_new_mouse_entered"]
+[connection signal="mouse_exited" from="New" to="." method="_on_new_mouse_exited"]
+[connection signal="pressed" from="New" to="." method="_on_new_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
