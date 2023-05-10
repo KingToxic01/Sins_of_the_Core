@@ -10,7 +10,8 @@ var attack_ip = false
 var current_direct = "none"
 @onready var animation = $AnimationPlayer
 @onready var attack_deal = $Deal_attack_timer
-
+var health = 100
+var player_alive = true 
 #parameters/Idle/blend_position
 	
 
@@ -24,6 +25,7 @@ func _ready():
 
 func _physics_process(delta):
 	PlayerMovement(delta)
+<<<<<<< Updated upstream
 	attack()
 	enemy_attack()
 	update_health()
@@ -33,6 +35,15 @@ func _physics_process(delta):
 		print("Your bad")
 		self.get_tree().change_scene_to_file("res://game_over.tscn")
 
+=======
+	Attack()
+	if health <= 0:
+		player_alive = false
+		health = 0
+		print("Player is dead")
+		self.queue_free()
+		
+>>>>>>> Stashed changes
 func PlayerMovement(delta):
 	if Input.is_action_pressed("right"):
 		current_direct = "right"
@@ -67,9 +78,7 @@ func PlayerMovement(delta):
 		PlayAnimator(0)
 		velocity.x = 0
 		velocity.y = 0
-	
-	
-	
+		
 	move_and_slide()
 
 
@@ -113,12 +122,22 @@ func _on_front_attack_body_exited(body):
 		enemy_in_attack_range = false
 		
 
+<<<<<<< Updated upstream
 func player():
 	pass
 
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_range = true
+=======
+func EnemyAttack():
+	if enemy_in_attack_range and attack_cooldown == true:
+		print("Enemy is attacking")
+		attack_cooldown = false
+		health = health - 20
+		$AttackTimer.start()
+		
+>>>>>>> Stashed changes
 
 
 func _on_player_hitbox_body_exited(body):
@@ -171,6 +190,7 @@ func _on_deal_attack_timer_timeout():
 	attack_ip = false
 
 
+<<<<<<< Updated upstream
 func update_health():
 	var healthbar = $healthbar
 	
@@ -190,3 +210,15 @@ func _on_regen_timeout():
 			health = 100
 	if health <= 0:
 		health = 0
+=======
+
+func _on_side_attack_body_entered(body):
+	if body.has_method("Enemy"):
+		enemy_in_attack_range = true
+
+
+func _on_side_attack_body_exited(body):
+	if body.has_method("Enemy"):
+		enemy_in_attack_range = false
+	
+>>>>>>> Stashed changes
