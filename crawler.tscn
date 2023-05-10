@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dobgw0x5vyl27"]
+
+[ext_resource type="Texture2D" uid="uid://dgnle1ndp8mce" path="res://Cockroach enemy/crawler.png" id="1_iujq8"]
+[ext_resource type="Script" path="res://crawler.gd" id="1_uwvfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1wk8"]
+size = Vector2(54, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1en4b"]
+size = Vector2(68, 54)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pieho"]
+radius = 92.1954
+
+[node name="crawler" type="CharacterBody2D"]
+script = ExtResource("1_uwvfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_iujq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_y1wk8")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_1en4b")
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_pieho")
+
+[node name="take_damage_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]

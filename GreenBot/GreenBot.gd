@@ -3,8 +3,6 @@ extends CharacterBody2D
 var speed = 100
 var health = 100
 var player_in_zone = false
-
-
 var player_chase = false
 var sonata = null
 @onready var animation = $AnimatedSprite2D
@@ -173,6 +171,7 @@ func Enemy_Damage():
 #	player = area
 
 
-
+func enemy():
+	pass
 
 

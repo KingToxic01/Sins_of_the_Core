@@ -1,8 +1,9 @@
-[gd_scene load_steps=43 format=3 uid="uid://cip742yfcgwr6"]
+[gd_scene load_steps=47 format=3 uid="uid://cip742yfcgwr6"]
 
 [ext_resource type="Script" path="res://Sonata/sonata.gd" id="1_0u221"]
 [ext_resource type="Texture2D" uid="uid://de4g0hf2o5led" path="res://Sonata/Sonata.png" id="1_pdquh"]
 [ext_resource type="Texture2D" uid="uid://ciwy6rd3vn3tb" path="res://Sonata/Sonata_side.png" id="2_kk5ah"]
+[ext_resource type="Shader" path="res://Sonata/sonata.gdshader" id="3_4p4qx"]
 [ext_resource type="Texture2D" uid="uid://b4i75f1jo2lqr" path="res://Sonata/Sonata_back.png" id="3_6l3sb"]
 [ext_resource type="Texture2D" uid="uid://bqenph8ucsay6" path="res://Sonata/Sonata_attack1.png" id="4_kkr7m"]
 [ext_resource type="Texture2D" uid="uid://d0hyfi51srtah" path="res://Sonata/Sonata_attack2.png" id="5_gd6ry"]
@@ -24,6 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://dad74ro8o4t0l" path="res://Sonata/Sonata_left2.png" id="13_5x6ew"]
 [ext_resource type="Texture2D" uid="uid://ex41vluodwrg" path="res://Sonata/Sonata_side_attack4.png" id="13_qt04y"]
 [ext_resource type="Texture2D" uid="uid://c8jx8p2ydk8nd" path="res://Shadows/MediumShadow.png" id="16_s1lgs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qarmh"]
+shader = ExtResource("3_4p4qx")
+shader_parameter/whiten = false
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x5opk"]
 animations = [{
@@ -76,7 +81,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"frontAttack",
-"speed": 4.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -116,6 +121,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_bdwsd")
 }, {
+"duration": 0.91,
+"texture": ExtResource("12_oy2nk")
+}, {
 "duration": 0.21,
 "texture": ExtResource("11_rtpdg")
 }, {
@@ -125,9 +133,29 @@ animations = [{
 "duration": 0.91,
 "texture": ExtResource("13_qt04y")
 }],
+"loop": false,
+"name": &"leftattack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_bdwsd")
+}, {
+"duration": 0.21,
+"texture": ExtResource("11_rtpdg")
+}, {
+"duration": 0.91,
+"texture": ExtResource("12_oy2nk")
+}, {
+"duration": 0.91,
+"texture": ExtResource("13_qt04y")
+}, {
+"duration": 0.91,
+"texture": ExtResource("12_oy2nk")
+}],
 "loop": true,
 "name": &"sideattack",
-"speed": 4.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -589,6 +617,9 @@ tracks/1/keys = {
 "values": [0, 0, 0, 0]
 }
 
+[sub_resource type="Animation" id="Animation_wbaoj"]
+resource_name = "left_attack"
+
 [sub_resource type="Animation" id="Animation_m5wd0"]
 resource_name = "walkback"
 length = 1.1
@@ -738,6 +769,7 @@ _data = {
 "frontAttack": SubResource("Animation_84vfo"),
 "idleback": SubResource("Animation_rn15b"),
 "idleleft": SubResource("Animation_kvlp5"),
+"left_attack": SubResource("Animation_wbaoj"),
 "walkback": SubResource("Animation_m5wd0"),
 "walkfront": SubResource("Animation_i0ekg"),
 "walkleft": SubResource("Animation_5mmdo"),
@@ -750,6 +782,9 @@ size = Vector2(22.5, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjqn3"]
 size = Vector2(7.77958, 10.9242)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doe2q"]
+size = Vector2(20, 29)
+
 [node name="Sonata" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
 collision_mask = 3
@@ -761,6 +796,7 @@ position = Vector2(0, 9)
 texture = ExtResource("16_s1lgs")
 
 [node name="SpriteAnimation" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_qarmh")
 position = Vector2(0, -0.5)
 scale = Vector2(1, 0.96875)
 sprite_frames = SubResource("SpriteFrames_x5opk")
@@ -794,12 +830,20 @@ position = Vector2(8, 2)
 scale = Vector2(2.12595, 1.37868)
 shape = SubResource("RectangleShape2D_mjqn3")
 
-[node name="AttackTimer" type="Timer" parent="."]
+[node name="playerHitbox" type="Area2D" parent="."]
 
-[node name="Deal_attack_timer" type="Timer" parent="."]
-wait_time = 0.4
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerHitbox"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_doe2q")
+
+[node name="enemy_cooldown" type="Timer" parent="."]
+
+[node name="deal_attack_timer" type="Timer" parent="."]
+wait_time = 0.6
 
 [connection signal="body_entered" from="frontAttack" to="." method="_on_front_attack_body_entered"]
 [connection signal="body_exited" from="frontAttack" to="." method="_on_front_attack_body_exited"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
-[connection signal="timeout" from="Deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="body_entered" from="playerHitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="playerHitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="enemy_cooldown" to="." method="_on_enemy_cooldown_timeout"]
+[connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]

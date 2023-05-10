@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cd123emum4cwy"]
+[gd_scene load_steps=17 format=3 uid="uid://cd123emum4cwy"]
 
 [ext_resource type="Script" path="res://GreenBot/GreenBot.gd" id="1_3tcgj"]
 [ext_resource type="Texture2D" uid="uid://86lnxau1ngxh" path="res://GreenBot/robot1_back1.png" id="2_lrebl"]
@@ -87,10 +87,13 @@ animations = [{
 radius = 59.2284
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b78gx"]
-size = Vector2(17, 26)
+size = Vector2(18, 26)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ah461"]
 radius = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2q5a"]
+size = Vector2(43, 40)
 
 [node name="GreenBot" type="CharacterBody2D"]
 disable_mode = 2
@@ -116,13 +119,19 @@ animation = &"Front"
 shape = SubResource("CircleShape2D_efwri")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["Enemy"]]
-position = Vector2(0.5, 0)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_b78gx")
 
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_ah461")
+
+[node name="enemyHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyHitbox"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_s2q5a")
 
 [connection signal="body_entered" from="ChaseArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="ChaseArea" to="." method="_on_area_2d_body_exited"]

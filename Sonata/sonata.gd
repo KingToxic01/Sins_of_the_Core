@@ -1,9 +1,12 @@
 extends CharacterBody2D
-
+var enemy_range = false
+var enemy_attackcooldown = true
+var health = 100
+var player_alive = true
 var attack_cooldown = true
 var enemy_in_attack_range = false
-var speed = 80
-var attack_in_progress = false
+var speed = 100
+var attack_ip = false
 var current_direct = "none"
 @onready var animation = $AnimationPlayer
 @onready var attack_deal = $Deal_attack_timer
@@ -20,9 +23,14 @@ func _ready():
 	animation.play("Idlefront")
 
 func _physics_process(delta):
-	EnemyAttack()
 	PlayerMovement(delta)
-	Attack()
+	attack()
+	enemy_attack()
+	if health <= 0:
+		player_alive = false
+		health = 0
+		print("Your bad")
+		self.get_tree().change_scene_to_file("res://Menu buttons and Logo/menu.tscn")
 
 func PlayerMovement(delta):
 	if Input.is_action_pressed("right"):
@@ -71,21 +79,21 @@ func PlayAnimator(movement):
 		if movement == 1:
 			animation.play("walkside")
 		elif  movement == 0:
-			if attack_in_progress == false:
+			if attack_ip == false:
 				animation.play("Idleside")
 			
 	if dir == "left":
 		if movement == 1:
 			animation.play("walkleft")
 		elif  movement == 0:
-			if attack_in_progress == false:
+			if attack_ip == false:
 				animation.play("idleleft")
 			
 	if dir == "down":
 		if movement == 1:
 			animation.play("walkfront")
 		elif  movement == 0:
-			if attack_in_progress == false:
+			if attack_ip == false:
 				animation.play("Idlefront")
 			
 	if dir == "up":
@@ -104,118 +112,55 @@ func _on_front_attack_body_exited(body):
 		enemy_in_attack_range = false
 		
 
-func EnemyAttack():
-	if enemy_in_attack_range and attack_cooldown == true:
-		attack_cooldown = false
-		$AttackTimer.start()
-		print("Enemy is attacking")
+func player():
+	pass
+
+func _on_player_hitbox_body_entered(body):
+	if body.has_method("enemy"):
+		enemy_range = true
 
 
-func _on_attack_timer_timeout():
-	attack_cooldown = true 
-	
-func Attack():
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("enemy"):
+		enemy_range = false
+
+func enemy_attack() :
+	if enemy_range and enemy_attackcooldown == true:
+		$enemy_cooldown.start()
+		enemy_attackcooldown = false
+		health = health - 10
+		print (health)
+
+
+func _on_enemy_cooldown_timeout():
+	enemy_attackcooldown = true
+
+func attack():
 	var dir = current_direct
 	
 	if Input.is_action_just_pressed("Attack"):
-		Global.player_current_attacking = true
-		attack_in_progress = true
+		global.player_current_attack = true
+		attack_ip = true
 		if dir == "right":
-			animation.play("Side Attack")
-			attack_deal.start()
+			$SpriteAnimation.flip_h = false
+			$SpriteAnimation.play("sideattack")
+			$deal_attack_timer.start()
 		if dir == "left":
-			animation.play("attack_left")
-			attack_deal.start()
+			$SpriteAnimation.flip_h = true
+			$SpriteAnimation.play("sideattack")
+			$deal_attack_timer.start()
 		if dir == "down":
-			animation.play("frontAttack")
-			attack_deal.start()
+			#$SpriteAnimation.flip_v = false
+			$SpriteAnimation.play("frontAttack")
+			$deal_attack_timer.start()
+		if dir == "up":
+			#$SpriteAnimation.flip_v = true
+			$SpriteAnimation.play("frontAttack")
+			$deal_attack_timer.start()
+
 
 
 func _on_deal_attack_timer_timeout():
-	attack_deal.stop() # Replace with function body.
-	Global.player_current_attacking = false
-	attack_in_progress = false
-
-func Player():
-	pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	# The CODE BELOW IS OUTDATED  
-	
-#	var input_direction = Vector2(
-#		Input.get_action_strength("right") - Input.get_action_strength("left"),
-#		Input.get_action_strength("down") - Input.get_action_strength("up"))
-#
-#	# Normalize input direction vector
-#	input_direction = input_direction.normalized()
-#
-#	# Multiply by speed
-#	var velocity = input_direction * speed
-#
-#	if  Input.is_key_pressed(KEY_S):
-#	# Determine animation state based on input direction
-#	if input_direction.x > 0 and input_direction.y > 0:
-#		animation.play("walkfront")
-#		velocity = Vector2(0,1) * MAX_SPEED
-#		move_and_slide()
-#	elif input_direction.x < 0 and input_direction.y > 0:
-#		animation.play("walkfront")
-#	elif input_direction.x > 0 and input_direction.y < 0:
-#		animation.play("walkback")
-#	elif input_direction.x < 0 and input_direction.y < 0:
-#		animation.play("walkback")
-#	elif input_direction.x > 0:
-#		animation.play("walkside")
-#	elif input_direction.x < 0:
-#		animation.play("walkleft")
-#	elif input_direction.y > 0:
-#		animation.play("walkfront")
-#	elif input_direction.y < 0:
-#		animation.play("walkback")
-#	else:
-
-#		# Determine idle animation based on input direction
-#		if velocity.x > 0:
-#			animation.play("idleside")
-#		elif velocity.x < 0:
-#			animation.play("idleleft")
-#		elif velocity.y > 0:
-#			animation.play("Idlefront")
-#		else:
-#			animation.play("idleback")
-#	# Move the character
-#	move_and_slide()
-	
-
-	
-	
-	
-	
-
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
+	$deal_attack_timer.stop()
+	global.player_current_attack = false
+	attack_ip = false
