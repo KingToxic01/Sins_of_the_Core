@@ -18,7 +18,7 @@ func _process(delta):
 
 func _on_new_button_pressed():
 	animation.play("NewButttonClicked")
-	get_tree().change_scene_to_file("res://Level 1/World.tscn")
+	get_tree().change_scene_to_file("res://cutscene.tscn")
 	
 
 func _on_quit_button_pressed():

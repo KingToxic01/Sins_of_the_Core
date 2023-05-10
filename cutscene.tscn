@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://crf4gv2aljrr0"]
+
+[ext_resource type="VideoStream" path="res://sonata_cutscene.ogv" id="1_n1kas"]
+[ext_resource type="Script" path="res://VideoStreamPlayer.gd" id="2_nmb1s"]
+
+[node name="cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+stream = ExtResource("1_n1kas")
+autoplay = true
+script = ExtResource("2_nmb1s")
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]

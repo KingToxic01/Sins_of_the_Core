@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds4ntwqvgk5uk"]
+[gd_scene load_steps=7 format=3 uid="uid://ds4ntwqvgk5uk"]
 
 [ext_resource type="Script" path="res://cock.gd" id="1_7yamk"]
 [ext_resource type="Texture2D" uid="uid://bjngnhggmsp1d" path="res://Cockroach enemy/cockroach.png" id="1_qnhbs"]
+[ext_resource type="AudioStream" uid="uid://dm0a8ncatv5fb" path="res://Music and Sounds/EnemyDie.wav" id="3_pcgoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wyw0"]
 size = Vector2(69, 34)
@@ -37,6 +38,10 @@ shape = SubResource("CircleShape2D_bmo04")
 
 [node name="take_damage_cooldown" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pcgoh")
+volume_db = -11.568
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

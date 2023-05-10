@@ -145,18 +145,22 @@ func attack():
 			$SpriteAnimation.flip_h = false
 			$SpriteAnimation.play("sideattack")
 			$deal_attack_timer.start()
+			$AudioStreamPlayer2D.play()
 		if dir == "left":
 			$SpriteAnimation.flip_h = true
 			$SpriteAnimation.play("sideattack")
 			$deal_attack_timer.start()
+			$AudioStreamPlayer2D.play()
 		if dir == "down":
 			#$SpriteAnimation.flip_v = false
 			$SpriteAnimation.play("frontAttack")
 			$deal_attack_timer.start()
+			$AudioStreamPlayer2D.play()
 		if dir == "up":
 			#$SpriteAnimation.flip_v = true
 			$SpriteAnimation.play("frontAttack")
 			$deal_attack_timer.start()
+			$AudioStreamPlayer2D.play()
 
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dobgw0x5vyl27"]
+[gd_scene load_steps=7 format=3 uid="uid://dobgw0x5vyl27"]
 
 [ext_resource type="Texture2D" uid="uid://dgnle1ndp8mce" path="res://Cockroach enemy/crawler.png" id="1_iujq8"]
 [ext_resource type="Script" path="res://crawler.gd" id="1_uwvfh"]
+[ext_resource type="AudioStream" uid="uid://dm0a8ncatv5fb" path="res://Music and Sounds/EnemyDie.wav" id="3_83dv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1wk8"]
 size = Vector2(54, 37)
@@ -36,6 +37,10 @@ shape = SubResource("CircleShape2D_pieho")
 
 [node name="take_damage_cooldown" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_83dv4")
+volume_db = -11.086
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

@@ -45,10 +45,12 @@ func take_damage():
 		if can_take_damage == true:
 			health = health - 25
 			$take_damage_cooldown.start()
+			$AudioStreamPlayer2D.play()
 			can_take_damage = false
 			print("crawler health = ", health)
 			if health <= 0:
 				self.queue_free()
+				
 
 
 func _on_take_damage_cooldown_timeout():

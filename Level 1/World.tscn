@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://c63fndom0x2nt"]
+[gd_scene load_steps=22 format=3 uid="uid://c63fndom0x2nt"]
 
 [ext_resource type="PackedScene" uid="uid://cip742yfcgwr6" path="res://Sonata/sonata.tscn" id="1_dlg5m"]
+[ext_resource type="Script" path="res://Level 1/World.gd" id="1_euf7u"]
 [ext_resource type="Texture2D" uid="uid://b6jcpmdw3gxr2" path="res://World/DirtTileset.png" id="1_saps6"]
 [ext_resource type="Texture2D" uid="uid://lvhc38pkfjva" path="res://World/GrassBackground.png" id="2_skdki"]
 [ext_resource type="Texture2D" uid="uid://2kgw8bn5v26y" path="res://World/tilemap garbage.png" id="3_p5l2b"]
 [ext_resource type="PackedScene" uid="uid://dobgw0x5vyl27" path="res://crawler.tscn" id="7_ogcop"]
 [ext_resource type="PackedScene" uid="uid://ds4ntwqvgk5uk" path="res://cock.tscn" id="8_02xwr"]
+[ext_resource type="AudioStream" uid="uid://k7me150hh21o" path="res://Music and Sounds/Music.mp3" id="8_yv8gl"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_o3ey3"]
 tile_data = PackedInt32Array(0, 3014659, 13, 65536, 2818051, 14, 131072, 2818051, 15, 1, 2883587, 13, 65537, 2883587, 14, 131073, 2883587, 15, 2, 2949123, 13, 65538, 2949123, 14, 131074, 2949123, 15, 3, 2818051, 13, 65539, 2818051, 14, 131075, 2818051, 15, 4, 2883587, 13, 65540, 2883587, 14, 131076, 2883587, 15, 5, 2949123, 13, 65541, 2949123, 14, 131077, 2818051, 14, 6, 3014659, 13, 65542, 3014659, 14, 131078, 3014659, 15, 7, 3080195, 13, 65543, 3080195, 14, 131079, 3080195, 15, 8, 3145731, 13, 65544, 3145731, 14, 131080, 3145731, 15)
@@ -4283,6 +4285,7 @@ pattern_7 = SubResource("TileMapPattern_ifalk")
 pattern_8 = SubResource("TileMapPattern_fqi0t")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_euf7u")
 
 [node name="TileMap" type="TileMap" parent="."]
 light_mask = 2
@@ -4342,3 +4345,9 @@ position = Vector2(616, 351)
 
 [node name="cock2" parent="." instance=ExtResource("8_02xwr")]
 position = Vector2(588, 550)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(592, 327)
+stream = ExtResource("8_yv8gl")
+autoplay = true
+max_distance = 10000.0
