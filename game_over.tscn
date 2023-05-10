@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://84st826xhwa1"]
+[gd_scene load_steps=18 format=3 uid="uid://84st826xhwa1"]
 
 [ext_resource type="Texture2D" uid="uid://b18fafa21mpty" path="res://Menu buttons and Logo/Untitled_Artwork (2).png" id="1_cw4hh"]
 [ext_resource type="Script" path="res://game_over.gd" id="1_dm5yv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dr1p2foqmbwl8" path="res://Menu buttons and Logo/Untitled_Artwork (3).png" id="5_sy8xo"]
 [ext_resource type="Texture2D" uid="uid://db03tgxlq74qt" path="res://Menu buttons and Logo/Untitled_Artwork (5).png" id="6_h3q7d"]
 [ext_resource type="Texture2D" uid="uid://duw06ymska08m" path="res://Menu buttons and Logo/Untitled_Artwork (8).png" id="7_vj75g"]
+[ext_resource type="AudioStream" uid="uid://bi33bn2ahik5u" path="res://Music and Sounds/Awakening_Sonata.wav" id="8_ow02s"]
 
 [sub_resource type="Animation" id="Animation_7n4dg"]
 resource_name = "Letters"
@@ -217,6 +218,12 @@ flat = true
 libraries = {
 "": SubResource("AnimationLibrary_gj6jn")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ow02s")
+volume_db = -0.028
+pitch_scale = 0.8
+autoplay = true
 
 [connection signal="mouse_entered" from="New" to="." method="_on_new_mouse_entered"]
 [connection signal="mouse_exited" from="New" to="." method="_on_new_mouse_exited"]
