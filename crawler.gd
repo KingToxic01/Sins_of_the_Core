@@ -43,7 +43,7 @@ func _on_hitbox_body_exited(body):
 func take_damage():
 	if player_inattack_zone and global.player_current_attack == true:
 		if can_take_damage == true:
-			health = health - 20
+			health = health - 25
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("crawler health = ", health)

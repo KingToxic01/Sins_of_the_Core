@@ -9,6 +9,36 @@
 [ext_resource type="Texture2D" uid="uid://duw06ymska08m" path="res://Menu buttons and Logo/Untitled_Artwork (8).png" id="7_vj75g"]
 [ext_resource type="AudioStream" uid="uid://bi33bn2ahik5u" path="res://Music and Sounds/Awakening_Sonata.wav" id="8_ow02s"]
 
+[sub_resource type="Animation" id="Animation_lhhc3"]
+resource_name = "Hoverquit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quit:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_h3q7d"), ExtResource("6_h3q7d")]
+}
+
+[sub_resource type="Animation" id="Animation_lpcwh"]
+resource_name = "IdleQuit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quit:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_cw4hh"), ExtResource("1_cw4hh")]
+}
+
 [sub_resource type="Animation" id="Animation_7n4dg"]
 resource_name = "Letters"
 length = 2.0
@@ -24,6 +54,51 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0.560784, 0.560784, 0.560784, 1), Color(0.94902, 0, 0, 1), Color(0.560784, 0.560784, 0.560784, 1), Color(0, 0, 0, 1), Color(0.94902, 0, 0, 1), Color(0.560784, 0.560784, 0.560784, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t4s8v"]
+resource_name = "NewHover"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("New:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_sy8xo"), ExtResource("5_sy8xo")]
+}
+
+[sub_resource type="Animation" id="Animation_sld83"]
+resource_name = "NewIdle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("New:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_kloxg"), ExtResource("2_kloxg")]
+}
+
+[sub_resource type="Animation" id="Animation_xg1yl"]
+resource_name = "QuitKLick"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quit:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_vj75g"), ExtResource("7_vj75g")]
 }
 
 [sub_resource type="Animation" id="Animation_dpeca"]
@@ -78,81 +153,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("2_kloxg"), ExtResource("4_jatbv"), ExtResource("2_kloxg")]
-}
-
-[sub_resource type="Animation" id="Animation_sld83"]
-resource_name = "NewIdle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("New:icon")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("2_kloxg"), ExtResource("2_kloxg")]
-}
-
-[sub_resource type="Animation" id="Animation_t4s8v"]
-resource_name = "NewHover"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("New:icon")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("5_sy8xo"), ExtResource("5_sy8xo")]
-}
-
-[sub_resource type="Animation" id="Animation_lpcwh"]
-resource_name = "IdleQuit"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Quit:icon")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("1_cw4hh"), ExtResource("1_cw4hh")]
-}
-
-[sub_resource type="Animation" id="Animation_lhhc3"]
-resource_name = "Hoverquit"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Quit:icon")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("6_h3q7d"), ExtResource("6_h3q7d")]
-}
-
-[sub_resource type="Animation" id="Animation_xg1yl"]
-resource_name = "QuitKLick"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Quit:icon")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("7_vj75g"), ExtResource("7_vj75g")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gj6jn"]

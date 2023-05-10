@@ -30,7 +30,7 @@ func _physics_process(delta):
 		player_alive = false
 		health = 0
 		print("Your bad")
-		self.get_tree().change_scene_to_file("res://Menu buttons and Logo/menu.tscn")
+		self.get_tree().change_scene_to_file("res://game_over.tscn")
 
 func PlayerMovement(delta):
 	if Input.is_action_pressed("right"):
