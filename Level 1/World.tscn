@@ -4323,31 +4323,37 @@ position_smoothing_enabled = true
 position_smoothing_speed = 100.0
 
 [node name="cock" parent="." instance=ExtResource("8_02xwr")]
-position = Vector2(264, 480)
+position = Vector2(96, 536)
+
+[node name="crawler6" parent="." instance=ExtResource("7_ogcop")]
+position = Vector2(336, 526)
 
 [node name="crawler" parent="." instance=ExtResource("7_ogcop")]
-position = Vector2(152, 357)
+position = Vector2(101, 314)
 
 [node name="crawler3" parent="." instance=ExtResource("7_ogcop")]
-position = Vector2(897, 572)
+position = Vector2(996, 509)
 
 [node name="crawler2" parent="." instance=ExtResource("7_ogcop")]
-position = Vector2(975, 333)
+position = Vector2(744, 325)
 
 [node name="crawler5" parent="." instance=ExtResource("7_ogcop")]
-position = Vector2(821, 130)
+position = Vector2(956, 97)
 
 [node name="crawler4" parent="." instance=ExtResource("7_ogcop")]
-position = Vector2(451, 80)
+position = Vector2(504, 104)
 
 [node name="cock3" parent="." instance=ExtResource("8_02xwr")]
-position = Vector2(616, 351)
+position = Vector2(1000, 315)
 
 [node name="cock2" parent="." instance=ExtResource("8_02xwr")]
-position = Vector2(588, 550)
+position = Vector2(721, 127)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(592, 327)
 stream = ExtResource("8_yv8gl")
 autoplay = true
 max_distance = 10000.0
+
+[node name="cock4" parent="." instance=ExtResource("8_02xwr")]
+position = Vector2(649, 556)

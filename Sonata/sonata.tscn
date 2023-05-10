@@ -856,7 +856,7 @@ scale = Vector2(0.15, 0.15)
 show_percentage = false
 
 [node name="regen" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="body_entered" from="frontAttack" to="." method="_on_front_attack_body_entered"]
@@ -865,5 +865,5 @@ autostart = true
 [connection signal="body_exited" from="playerHitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="enemy_cooldown" to="." method="_on_enemy_cooldown_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
-[connection signal="timeout" from="regen" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]
+[connection signal="timeout" from="regen" to="." method="_on_timer_timeout"]
